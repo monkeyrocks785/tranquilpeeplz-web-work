@@ -3,15 +3,15 @@
 @theme {
   --color-paper: #f2eee3;
   --color-cream: #faf7ef;
-  --color-ink: #0d1f1b;
-  --color-ink-soft: #3d4f49;
-  --color-pine: #0f4a3c;
-  --color-moss: #17705c;
-  --color-sage: #dbe4d5;
-  --color-sand: #e3dac6;
+  --color-ink: #b84518;
+  --color-ink-soft: #e4572e;
+  --color-pine: #e4572e;
+  --color-moss: #e4572e;
+  --color-sage: #ffe5d8;
+  --color-sand: #ffd7b8;
   --color-accent: #e4572e;
-  --color-accent-deep: #b93e19;
-  --color-gold: #e7b44b;
+  --color-accent-deep: #c73d12;
+  --color-gold: #f5a623;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
