@@ -293,7 +293,7 @@ export function homePage(p: {
         ${VALUES.map(
     (v, i) => rv(
       `<div class="flex gap-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-sage text-pine">${icon(v.icon, "", 20)}</span>
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-cream">${icon(v.icon, "", 20)}</span>
               <div>
                 <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
                 <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
@@ -348,9 +348,9 @@ export function homePage(p: {
       ${rv(
     `<div class="relative h-full overflow-hidden rounded-[1.75rem] bg-pine p-8 text-cream md:p-10">
           <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-40"></div>
-          <span class="relative inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase">${icon("circle-check", "text-gold", 14)} Solutions with us</span>
+          <span class="relative inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase">${icon("circle-check", "text-cream", 14)} Solutions with us</span>
           <ul class="relative mt-7 space-y-5">
-            ${SOLUTIONS.map((s) => `<li class="flex gap-3.5 text-[15px] leading-relaxed text-cream/85">${icon("circle-check", "mt-0.5 shrink-0 text-gold", 19)}${esc(s)}</li>`).join("")}
+            ${SOLUTIONS.map((s) => `<li class="flex gap-3.5 text-[15px] leading-relaxed text-cream/85">${icon("circle-check", "mt-0.5 shrink-0 text-cream", 19)}${esc(s)}</li>`).join("")}
           </ul>
           <a href="/contact-us" class="relative btn btn-accent mt-9">Talk to our team ${icon("arrow-up-right", "", 15)}</a>
         </div>`,

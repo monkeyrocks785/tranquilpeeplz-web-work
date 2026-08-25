@@ -21,15 +21,10 @@ const NAV = [
 ];
 
 function logo(light = false): string {
-  const box = light ? "bg-cream" : "bg-ink";
-  const letter = light ? "text-ink" : "text-cream";
   const text = light ? "text-cream" : "text-ink";
   const sub = light ? "text-cream/60" : "text-ink/50";
   return `<a href="/" class="group inline-flex items-center gap-2.5">
-  <span class="relative grid h-10 w-10 place-items-center">
-    <span class="absolute inset-0 rounded-xl rotate-45 transition-transform duration-500 group-hover:rotate-[135deg] ${box}"></span>
-    <span class="relative font-display text-lg font-semibold italic ${letter}">tp</span>
-  </span>
+  <img src="/logo.jpeg" alt="Tranquil Peeplz Logo" class="h-10 w-auto" />
   <span class="leading-none ${text}">
     <span class="block font-display text-[19px] font-medium tracking-tight">Tranquil <span class="italic text-accent">Peeplz</span></span>
     <span class="mt-0.5 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${sub}">Recruitment Consultancy</span>
@@ -208,7 +203,7 @@ export function page(opts: PageOptions): string {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc(opts.title)}</title>
 <meta name="description" content="${esc(desc)}" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='14' y='14' width='36' height='36' rx='9' transform='rotate(45 32 32)' fill='%230d1f1b'/%3E%3Ctext x='32' y='40' font-family='Georgia,serif' font-style='italic' font-size='22' fill='%23faf7ef' text-anchor='middle'%3Etp%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="/logo.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f2eee3;
-  --color-cream: #faf7ef;
-  --color-ink: #b84518;
-  --color-ink-soft: #e4572e;
-  --color-pine: #e4572e;
-  --color-moss: #e4572e;
-  --color-sage: #ffe5d8;
-  --color-sand: #ffd7b8;
-  --color-accent: #e4572e;
+  --color-paper: #ffffff;
+  --color-cream: #ffffff;
+  --color-ink: #3c0018;
+  --color-ink-soft: #3c0018;
+  --color-pine: #f15a24;
+  --color-moss: #f15a24;
+  --color-sage: #f15a24;
+  --color-sand: #f15a24;
+  --color-accent: #f15a24;
   --color-accent-deep: #c73d12;
-  --color-gold: #f5a623;
+  --color-gold: #f15a24;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
@@ -34,7 +34,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -121,7 +121,7 @@ body {
 .field-error { margin-top: 0.25rem; font-size: 12.5px; font-weight: 500; color: var(--color-accent-deep); }
 select.field {
   appearance: none; padding-right: 2.75rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230d1f1b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233c0018' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 1rem center;
 }
 
@@ -158,7 +158,7 @@ select.field {
 
 /* ---------- header states ---------- */
 #site-header { transition: all 0.5s; }
-#site-header.scrolled { border-bottom: 1px solid rgba(13,31,27,.1); background: rgba(242,238,227,.85); backdrop-filter: blur(16px); padding-block: 0.625rem; }
+#site-header.scrolled { border-bottom: 1px solid rgba(60,0,24,.1); background: rgba(255,255,255,.85); backdrop-filter: blur(16px); padding-block: 0.625rem; }
 #mobile-menu { display: none; }
 #mobile-menu.open { display: block; }
 body.menu-open { overflow: hidden; }
