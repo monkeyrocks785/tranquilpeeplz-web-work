@@ -7,7 +7,7 @@ export function blogPage(posts: BlogPost[]): string {
   const [first, ...rest] = posts;
   const featured = first
     ? rv(
-        `<a href="/blog/${esc(first.slug)}" class="group mt-12 grid gap-8 rounded-[2rem] border border-ink/10 bg-cream p-6 md:grid-cols-2 md:p-8">
+      `<a href="/blog/${esc(first.slug)}" class="group mt-12 grid gap-8 rounded-[2rem] border border-ink/10 bg-cream p-6 md:grid-cols-2 md:p-8">
           <div class="img-frame aspect-[16/10]">
             ${first.coverImage ? `<img src="${esc(first.coverImage)}" alt="${esc(first.title)}" class="object-cover" />` : ""}
           </div>
@@ -18,8 +18,8 @@ export function blogPage(posts: BlogPost[]): string {
             <span class="mt-6 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.16em] text-accent uppercase">Read article ${icon("arrow-up-right", "", 15)}</span>
           </div>
         </a>`,
-        { delay: 0.16 },
-      )
+      { delay: 0.16 },
+    )
     : "";
 
   const grid = rest
@@ -69,13 +69,13 @@ export function blogPostPage(post: BlogPost, others: BlogPost[]): string {
         <h2 class="font-display text-2xl font-medium tracking-tight">Keep <span class="italic-pop">reading</span></h2>
         <div class="mt-6 grid gap-6 sm:grid-cols-2">
           ${others
-            .map(
-              (o) => `<a href="/blog/${esc(o.slug)}" class="group rounded-3xl border border-ink/10 bg-cream p-6 card-hover">
+      .map(
+        (o) => `<a href="/blog/${esc(o.slug)}" class="group rounded-3xl border border-ink/10 bg-cream p-6 card-hover">
                 <p class="text-[11px] font-semibold tracking-[0.18em] text-moss uppercase">${esc(o.category)}</p>
                 <h3 class="font-display mt-2 text-xl leading-snug font-medium tracking-tight transition-colors group-hover:text-moss">${esc(o.title)}</h3>
               </a>`,
-            )
-            .join("")}
+      )
+      .join("")}
         </div>
       </section>`
     : "";

@@ -22,7 +22,7 @@ function hero(p: {
       ${p.extraBullets ? rv(`<ul class="mt-10 space-y-3">${p.extraBullets.map((b) => `<li class="flex items-center gap-3 text-[14.5px] font-medium text-ink-soft">${icon("circle-check", "shrink-0 text-moss", 18)}${esc(b)}</li>`).join("")}</ul>`, { delay: 0.3 }) : ""}
     </div>
     ${rv(
-      `<div class="relative">
+    `<div class="relative">
         <div class="img-frame aspect-[4/3] shadow-2xl shadow-ink/15">
           <img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" class="object-cover" />
         </div>
@@ -31,8 +31,8 @@ function hero(p: {
           <p class="text-[11px] font-semibold tracking-[0.16em] uppercase opacity-80">${esc(p.stat.label)}</p>
         </div>
       </div>`,
-      { delay: 0.15 },
-    )}
+    { delay: 0.15 },
+  )}
   </section>`;
 }
 
@@ -443,17 +443,17 @@ export function servicePage(c: ServicePageConfig): string {
       ${sectionHeading({ align: "center", eyebrow: "What we deliver", title: `Built for <span class="italic-pop">real outcomes</span>` })}
       <div class="mt-14 grid gap-6 md:grid-cols-3">
         ${c.offerings
-          .map(
-            (o, i) => rv(
-              `<div class="card-hover h-full rounded-[1.75rem] border border-ink/10 bg-paper p-8">
+      .map(
+        (o, i) => rv(
+          `<div class="card-hover h-full rounded-[1.75rem] border border-ink/10 bg-paper p-8">
                 <span class="grid h-13 w-13 place-items-center rounded-2xl bg-sage text-pine">${icon(o.icon, "", 24)}</span>
                 <h3 class="font-display mt-6 text-[1.5rem] leading-snug font-medium tracking-tight">${esc(o.title)}</h3>
                 <p class="mt-3 text-[14.5px] leading-relaxed text-ink-soft">${esc(o.copy)}</p>
               </div>`,
-              { delay: 0.08 * i },
-            ),
-          )
-          .join("")}
+          { delay: 0.08 * i },
+        ),
+      )
+      .join("")}
       </div>
     </div>
   </section>
@@ -463,19 +463,19 @@ export function servicePage(c: ServicePageConfig): string {
         ${sectionHeading({ eyebrow: "How it runs", title: `The engagement, <span class="italic-pop">step by step</span>` })}
         <div class="mt-10 space-y-4">
           ${c.steps
-            .map(
-              (s, i) => rv(
-                `<div class="card-hover flex gap-6 rounded-3xl border border-ink/10 bg-cream p-6">
+      .map(
+        (s, i) => rv(
+          `<div class="card-hover flex gap-6 rounded-3xl border border-ink/10 bg-cream p-6">
                   <span class="font-display text-3xl font-semibold text-accent">${s.nr}</span>
                   <div>
                     <h3 class="font-display text-xl font-medium tracking-tight">${esc(s.title)}</h3>
                     <p class="mt-1.5 text-[14px] leading-relaxed text-ink-soft">${esc(s.copy)}</p>
                   </div>
                 </div>`,
-                { delay: 0.07 * i },
-              ),
-            )
-            .join("")}
+          { delay: 0.07 * i },
+        ),
+      )
+      .join("")}
         </div>
       </div>
       <div>
@@ -508,12 +508,12 @@ export function contactPage(p?: {
           <div>
             <h2 class="text-[11px] font-semibold tracking-[0.2em] text-ink/45 uppercase">${it.label}</h2>
             ${it.lines
-              .map((l) =>
-                it.href
-                  ? `<a href="${it.href}" class="block text-[15.5px] font-medium text-ink transition-colors hover:text-accent">${l}</a>`
-                  : `<p class="text-[15.5px] font-medium text-ink">${l}</p>`,
-              )
-              .join("")}
+          .map((l) =>
+            it.href
+              ? `<a href="${it.href}" class="block text-[15.5px] font-medium text-ink transition-colors hover:text-accent">${l}</a>`
+              : `<p class="text-[15.5px] font-medium text-ink">${l}</p>`,
+          )
+          .join("")}
           </div>
         </div>`,
         { delay: 0.06 * i },
@@ -575,10 +575,10 @@ export function contactPage(p?: {
 
   return `<div class="container-x pt-10 pb-24 lg:pt-14">
     ${sectionHeading({
-      eyebrow: "Contact Us",
-      title: `Let's start the<br/><span class="italic-pop">conversation</span>`,
-      intro: "Hiring requirements, candidate queries or partnership ideas — message us and a real human replies within one business day.",
-    })}
+    eyebrow: "Contact Us",
+    title: `Let's start the<br/><span class="italic-pop">conversation</span>`,
+    intro: "Hiring requirements, candidate queries or partnership ideas — message us and a real human replies within one business day.",
+  })}
     <div class="mt-14 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
       <div class="space-y-4">
         ${info}
@@ -610,16 +610,16 @@ export function privacyPage(): string {
     <p class="mt-5 text-[15px] text-ink-soft">Recruitment runs on trust. Here's exactly how we handle the information you share with Tranquil Peeplz — in plain language.</p>`)}
     <div class="mt-12 space-y-8">
       ${sections
-        .map(
-          (s, i) => rv(
-            `<section class="rounded-3xl border border-ink/10 bg-cream p-7">
+      .map(
+        (s, i) => rv(
+          `<section class="rounded-3xl border border-ink/10 bg-cream p-7">
               <h2 class="font-display text-xl font-medium tracking-tight"><span class="mr-3 text-accent">0${i + 1}</span>${esc(s.title)}</h2>
               <p class="mt-3 text-[15px] leading-[1.8] text-ink-soft">${esc(s.body)}</p>
             </section>`,
-            { delay: 0.04 * i },
-          ),
-        )
-        .join("")}
+          { delay: 0.04 * i },
+        ),
+      )
+      .join("")}
     </div>
     <p class="mt-8 text-[13px] text-ink/50">Last updated: January 2026</p>
   </div>`;

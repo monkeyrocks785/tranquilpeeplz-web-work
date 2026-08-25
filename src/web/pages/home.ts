@@ -147,43 +147,43 @@ export function homePage(p: {
       <div>
         ${rv(`<p class="eyebrow" style="display:inline-flex">Recruitment · Staffing · Workforce — Bangalore</p>`)}
         ${rv(
-          `<h1 class="h-display mt-6 text-[13.5vw] leading-[0.98] sm:text-6xl md:text-7xl xl:text-[5.4rem]">
+    `<h1 class="h-display mt-6 text-[13.5vw] leading-[0.98] sm:text-6xl md:text-7xl xl:text-[5.4rem]">
             Creating<br/>Possibilities<br/>
             <span class="squiggle italic-pop">Faster.
               <svg viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 40 4, 80 20, 110 12 S 175 3, 217 13" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
             </span>
           </h1>`,
-          { delay: 0.08 },
-        )}
+    { delay: 0.08 },
+  )}
         ${rv(`<p class="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-soft">Tranquil Peeplz transforms how organisations connect and grow with people — through speed, precision and purpose. One partner for staffing, permanent hiring and everything in between.</p>`, { delay: 0.16 })}
         ${rv(
-          `<div class="mt-9 flex flex-wrap items-center gap-4">
+    `<div class="mt-9 flex flex-wrap items-center gap-4">
             <a href="/job-search" class="btn btn-accent">Find Jobs ${icon("arrow-up-right", "", 16)}</a>
             <a href="/for-employer" class="btn btn-outline">Hire Talent ${icon("arrow-right", "", 16)}</a>
           </div>`,
-          { delay: 0.24 },
-        )}
+    { delay: 0.24 },
+  )}
         ${rv(
-          `<dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-ink/12 pt-7">
+    `<dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-ink/12 pt-7">
             ${[
-              { v: 500, s: "+", l: "Professionals placed" },
-              { v: 60, s: "+", l: "Partner companies" },
-              { v: openJobs, s: "", l: "Open roles today" },
-            ]
-              .map(
-                (x) => `<div>
+      { v: 500, s: "+", l: "Professionals placed" },
+      { v: 60, s: "+", l: "Partner companies" },
+      { v: openJobs, s: "", l: "Open roles today" },
+    ]
+      .map(
+        (x) => `<div>
                 <dt class="sr-only">${x.l}</dt>
                 <dd class="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl"><span data-count="${x.v}" data-suffix="${x.s}">0${x.s}</span></dd>
                 <dd class="mt-1 text-[12px] font-medium tracking-wide text-ink/55 uppercase">${x.l}</dd>
               </div>`,
-              )
-              .join("")}
+      )
+      .join("")}
           </dl>`,
-          { delay: 0.32 },
-        )}
+    { delay: 0.32 },
+  )}
       </div>
       ${rv(
-        `<div class="relative hidden lg:block">
+    `<div class="relative hidden lg:block">
           <div class="relative ml-auto w-full max-w-[430px]">
             <div class="img-frame aspect-[4/5] shadow-2xl shadow-ink/20">
               <img src="https://images.pexels.com/photos/3861563/pexels-photo-3861563.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=880" alt="Colleagues in an upbeat conversation at the office" class="object-cover" />
@@ -198,8 +198,8 @@ export function homePage(p: {
             ${stamp("absolute -right-10 bottom-16 text-ink/70")}
           </div>
         </div>`,
-        { delay: 0.2 },
-      )}
+    { delay: 0.2 },
+  )}
     </div>
   </section>
   ${marquee([
@@ -220,16 +220,16 @@ export function homePage(p: {
   const services = `<section class="container-x py-24">
     <div class="flex flex-wrap items-end justify-between gap-6">
       ${sectionHeading({
-        eyebrow: "Our Services",
-        title: `Three ways we move<br/>your team <span class="italic-pop">forward</span>`,
-        intro: "Hiring and staffing solutions that keep pace with today's demands — and tomorrow's growth.",
-      })}
+    eyebrow: "Our Services",
+    title: `Three ways we move<br/>your team <span class="italic-pop">forward</span>`,
+    intro: "Hiring and staffing solutions that keep pace with today's demands — and tomorrow's growth.",
+  })}
       ${rv(`<a href="/for-employer" class="link-underline text-[13px] uppercase tracking-[0.14em] text-ink/70">For employers →</a>`, { delay: 0.1 })}
     </div>
     <div class="mt-14 grid gap-6 md:grid-cols-3">
       ${SERVICES.map(
-        (s, i) => rv(
-          `<a href="${s.href}" class="card-hover group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-8 hover:border-pine hover:bg-pine">
+    (s, i) => rv(
+      `<a href="${s.href}" class="card-hover group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-8 hover:border-pine hover:bg-pine">
             <div class="flex items-start justify-between">
               <span class="font-display text-6xl font-semibold text-ink/10 transition-colors group-hover:text-cream/15">${s.nr}</span>
               ${icon(s.icon, "text-accent transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110", 30)}
@@ -239,9 +239,9 @@ export function homePage(p: {
             <div class="mt-6 flex flex-wrap gap-2">${s.tags.map((t) => `<span class="rounded-full border border-ink/12 px-3 py-1 text-[11px] font-medium text-ink/60 transition-colors group-hover:border-cream/25 group-hover:text-cream/70">${esc(t)}</span>`).join("")}</div>
             <span class="mt-7 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.16em] text-accent uppercase">Explore service ${icon("arrow-up-right", "", 15)}</span>
           </a>`,
-          { delay: 0.08 * i },
-        ),
-      ).join("")}
+      { delay: 0.08 * i },
+    ),
+  ).join("")}
     </div>
   </section>`;
 
@@ -249,31 +249,31 @@ export function homePage(p: {
     <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-50"></div>
     <div class="container-x relative">
       ${sectionHeading({
-        dark: true,
-        align: "center",
-        eyebrow: "How Tranquil Peeplz Works",
-        title: `From brief to <span class="italic-pop">day one</span>,<br class="hidden md:block"/> in four moves`,
-        intro: "A simple, bold idea: transform how organisations find, connect and grow with talent — faster, smarter, and with purpose.",
-      })}
+    dark: true,
+    align: "center",
+    eyebrow: "How Tranquil Peeplz Works",
+    title: `From brief to <span class="italic-pop">day one</span>,<br class="hidden md:block"/> in four moves`,
+    intro: "A simple, bold idea: transform how organisations find, connect and grow with talent — faster, smarter, and with purpose.",
+  })}
       <div class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         ${STEPS.map(
-          (st, i) => rv(
-            `<div class="relative border-t border-cream/15 pt-7">
+    (st, i) => rv(
+      `<div class="relative border-t border-cream/15 pt-7">
               <span class="absolute -top-px left-0 h-px w-14 bg-accent"></span>
               <span class="font-display text-lg font-semibold text-accent italic">${st.nr}</span>
               <h3 class="font-display mt-3 text-2xl font-medium tracking-tight">${esc(st.title)}</h3>
               <p class="mt-3 text-[14px] leading-relaxed text-cream/65">${esc(st.copy)}</p>
             </div>`,
-            { delay: 0.09 * i },
-          ),
-        ).join("")}
+      { delay: 0.09 * i },
+    ),
+  ).join("")}
       </div>
     </div>
   </section>`;
 
   const who = `<section class="container-x grid items-center gap-14 py-24 lg:grid-cols-2">
     ${rv(
-      `<div class="relative">
+    `<div class="relative">
         <div class="img-frame aspect-[4/3] shadow-2xl shadow-ink/15">
           <img src="https://images.pexels.com/photos/7993944/pexels-photo-7993944.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100" alt="The Tranquil Peeplz team collaborating" class="object-cover" />
         </div>
@@ -282,26 +282,26 @@ export function homePage(p: {
           <p class="text-[11px] font-semibold tracking-[0.16em] uppercase opacity-90">Industries served</p>
         </div>
       </div>`,
-    )}
+  )}
     <div>
       ${sectionHeading({
-        eyebrow: "What makes us — who we are",
-        title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`,
-        intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome.",
-      })}
+    eyebrow: "What makes us — who we are",
+    title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`,
+    intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome.",
+  })}
       <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2">
         ${VALUES.map(
-          (v, i) => rv(
-            `<div class="flex gap-4">
+    (v, i) => rv(
+      `<div class="flex gap-4">
               <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-sage text-pine">${icon(v.icon, "", 20)}</span>
               <div>
                 <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
                 <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
               </div>
             </div>`,
-            { delay: 0.05 * i },
-          ),
-        ).join("")}
+      { delay: 0.05 * i },
+    ),
+  ).join("")}
       </div>
       ${rv(`<a href="/about-us" class="btn btn-primary mt-10">Learn more about us ${icon("arrow-up-right", "", 16)}</a>`, { delay: 0.2 })}
     </div>
@@ -310,43 +310,43 @@ export function homePage(p: {
   const industries = `<section class="border-y border-ink/10 bg-cream py-24">
     <div class="container-x">
       ${sectionHeading({
-        align: "center",
-        eyebrow: "Industries we cater to",
-        title: `Specialised recruitment,<br/>across <span class="italic-pop">every sector</span> that matters`,
-      })}
+    align: "center",
+    eyebrow: "Industries we cater to",
+    title: `Specialised recruitment,<br/>across <span class="italic-pop">every sector</span> that matters`,
+  })}
       <div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
         ${INDUSTRIES.map(
-          (ind, i) => rv(
-            `<a href="/job-search?industry=${encodeURIComponent(ind.name)}" class="card-hover group flex h-full flex-col items-center gap-4 rounded-3xl border border-ink/10 bg-paper px-6 py-9 text-center hover:border-pine">
+    (ind, i) => rv(
+      `<a href="/job-search?industry=${encodeURIComponent(ind.name)}" class="card-hover group flex h-full flex-col items-center gap-4 rounded-3xl border border-ink/10 bg-paper px-6 py-9 text-center hover:border-pine">
               <span class="grid h-14 w-14 place-items-center rounded-full bg-pine text-cream transition-all duration-500 group-hover:rotate-6 group-hover:bg-accent">${icon(ind.icon, "", 24)}</span>
               <span class="font-display text-lg font-medium tracking-tight text-ink">${esc(ind.name)}</span>
               <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.16em] text-ink/45 uppercase transition-colors group-hover:text-accent">View roles ${icon("arrow-up-right", "", 12)}</span>
             </a>`,
-            { delay: 0.05 * i },
-          ),
-        ).join("")}
+      { delay: 0.05 * i },
+    ),
+  ).join("")}
       </div>
     </div>
   </section>`;
 
   const challenge = `<section class="container-x py-24">
     ${sectionHeading({
-      align: "center",
-      eyebrow: "Why Tranquil Peeplz",
-      title: `Solve your hiring challenges<br/><span class="italic-pop">with us</span>`,
-      intro: "Hiring delays and missed deadlines quietly tax every growing business. Here's the difference a specialist partner makes.",
-    })}
+    align: "center",
+    eyebrow: "Why Tranquil Peeplz",
+    title: `Solve your hiring challenges<br/><span class="italic-pop">with us</span>`,
+    intro: "Hiring delays and missed deadlines quietly tax every growing business. Here's the difference a specialist partner makes.",
+  })}
     <div class="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
       ${rv(
-        `<div class="h-full rounded-[1.75rem] border border-ink/10 bg-cream p-8 md:p-10">
+    `<div class="h-full rounded-[1.75rem] border border-ink/10 bg-cream p-8 md:p-10">
           <span class="inline-flex items-center gap-2 rounded-full bg-ink/[0.06] px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-ink/60 uppercase">${icon("x-circle", "text-accent", 14)} Challenges without us</span>
           <ul class="mt-7 space-y-5">
             ${CHALLENGES.map((c) => `<li class="flex gap-3.5 text-[15px] leading-relaxed text-ink-soft">${icon("x-circle", "mt-0.5 shrink-0 text-accent/70", 19)}${esc(c)}</li>`).join("")}
           </ul>
         </div>`,
-      )}
+  )}
       ${rv(
-        `<div class="relative h-full overflow-hidden rounded-[1.75rem] bg-pine p-8 text-cream md:p-10">
+    `<div class="relative h-full overflow-hidden rounded-[1.75rem] bg-pine p-8 text-cream md:p-10">
           <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-40"></div>
           <span class="relative inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase">${icon("circle-check", "text-gold", 14)} Solutions with us</span>
           <ul class="relative mt-7 space-y-5">
@@ -354,8 +354,8 @@ export function homePage(p: {
           </ul>
           <a href="/contact-us" class="relative btn btn-accent mt-9">Talk to our team ${icon("arrow-up-right", "", 15)}</a>
         </div>`,
-        { delay: 0.12 },
-      )}
+    { delay: 0.12 },
+  )}
     </div>
   </section>`;
 
@@ -363,10 +363,10 @@ export function homePage(p: {
     <div class="container-x">
       <div class="flex flex-wrap items-end justify-between gap-6">
         ${sectionHeading({
-          eyebrow: "Live opportunities",
-          title: `Fresh roles, <span class="italic-pop">open now</span>`,
-          intro: "A snapshot from our live board. Every role here is reviewed and approved by our team before it goes up.",
-        })}
+    eyebrow: "Live opportunities",
+    title: `Fresh roles, <span class="italic-pop">open now</span>`,
+    intro: "A snapshot from our live board. Every role here is reviewed and approved by our team before it goes up.",
+  })}
         ${rv(`<a href="/job-search" class="btn btn-outline">Browse all jobs ${icon("arrow-right", "", 16)}</a>`, { delay: 0.1 })}
       </div>
       <div class="mt-12 grid gap-5 md:grid-cols-2">
@@ -377,14 +377,14 @@ export function homePage(p: {
 
   const testimonials = `<section class="container-x py-24">
     ${sectionHeading({
-      align: "center",
-      eyebrow: "Partners speak",
-      title: `Trusted by teams who<br/>hire with <span class="italic-pop">intent</span>`,
-    })}
+    align: "center",
+    eyebrow: "Partners speak",
+    title: `Trusted by teams who<br/>hire with <span class="italic-pop">intent</span>`,
+  })}
     <div class="mt-14 grid gap-6 md:grid-cols-3">
       ${TESTIMONIALS.map(
-        (t, i) => rv(
-          `<figure class="card-hover flex h-full flex-col rounded-[1.75rem] border border-ink/10 bg-cream p-8">
+    (t, i) => rv(
+      `<figure class="card-hover flex h-full flex-col rounded-[1.75rem] border border-ink/10 bg-cream p-8">
             <span class="font-display text-6xl leading-none text-accent">"</span>
             <blockquote class="mt-2 flex-1 text-[15px] leading-relaxed text-ink-soft">${esc(t.quote)}</blockquote>
             <figcaption class="mt-7 border-t border-ink/10 pt-5">
@@ -392,9 +392,9 @@ export function homePage(p: {
               <p class="text-[12.5px] font-medium tracking-wide text-ink/50 uppercase">${esc(t.org)}</p>
             </figcaption>
           </figure>`,
-          { delay: 0.08 * i },
-        ),
-      ).join("")}
+      { delay: 0.08 * i },
+    ),
+  ).join("")}
     </div>
   </section>`;
 
@@ -402,17 +402,17 @@ export function homePage(p: {
     <div class="rounded-[2rem] bg-sand/60 p-8 md:p-14">
       <div class="flex flex-wrap items-end justify-between gap-6">
         ${sectionHeading({
-          eyebrow: "From the journal",
-          title: `Ideas on hiring, <span class="italic-pop">done well</span>`,
-        })}
+    eyebrow: "From the journal",
+    title: `Ideas on hiring, <span class="italic-pop">done well</span>`,
+  })}
         ${rv(`<a href="/blog" class="link-underline text-[13px] tracking-[0.14em] text-ink/70 uppercase">All articles →</a>`, { delay: 0.1 })}
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         ${p.posts
-          .slice(0, 3)
-          .map(
-            (post, i) => rv(
-              `<a href="/blog/${esc(post.slug)}" class="group block h-full">
+      .slice(0, 3)
+      .map(
+        (post, i) => rv(
+          `<a href="/blog/${esc(post.slug)}" class="group block h-full">
                 <article class="flex h-full flex-col">
                   <div class="img-frame aspect-[16/10]">
                     ${post.coverImage ? `<img src="${esc(post.coverImage)}" alt="${esc(post.title)}" class="object-cover" loading="lazy" />` : ""}
@@ -421,17 +421,17 @@ export function homePage(p: {
                   <h3 class="font-display mt-2 text-xl leading-snug font-medium tracking-tight text-ink transition-colors group-hover:text-moss">${esc(post.title)}</h3>
                 </article>
               </a>`,
-              { delay: 0.07 * i },
-            ),
-          )
-          .join("")}
+          { delay: 0.07 * i },
+        ),
+      )
+      .join("")}
       </div>
     </div>
   </section>`;
 
   const ctaSection = `<section class="container-x pb-24">
     ${rv(
-      `<div class="relative overflow-hidden rounded-[2.5rem] bg-ink px-8 py-16 text-center text-cream md:py-24">
+    `<div class="relative overflow-hidden rounded-[2.5rem] bg-ink px-8 py-16 text-center text-cream md:py-24">
         <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-50"></div>
         <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl"></div>
         <p class="eyebrow relative justify-center !text-gold" style="display:inline-flex">Ready to get started?</p>
@@ -442,7 +442,7 @@ export function homePage(p: {
           <a href="/job-search" class="btn btn-ghost-light">Find your next role</a>
         </div>
       </div>`,
-    )}
+  )}
   </section>`;
 
   return hero + services + how + who + industries + challenge + jobs + testimonials + blogTeaser + ctaSection;

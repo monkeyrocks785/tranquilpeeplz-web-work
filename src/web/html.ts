@@ -144,7 +144,7 @@ function footer(): string {
         </div>
       </div>
       <div class="flex flex-col items-start justify-between gap-4 border-t border-cream/10 py-6 text-[13px] text-cream/45 sm:flex-row sm:items-center">
-        <p>© ${new Date().getFullYear()} Tranquil Peeplz. All rights reserved.</p>
+        <p>© ${new Date().getFullYear()} Tranquil Peeplz. All rights reserved | Developed by - <a href = "https://linkedin.com/in/mayankgarg785">Mayank Garg</a></p>
         <a href="#top" class="inline-flex items-center gap-2 text-cream/60 transition-colors hover:text-accent" aria-label="Scroll to top">Back to top ${icon("arrow-up", "", 14)}</a>
       </div>
     </div>

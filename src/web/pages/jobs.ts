@@ -80,7 +80,7 @@ export function jobSearchPage(p: {
     ${rv(`<h1 class="h-display mt-5 max-w-3xl text-5xl leading-[1.02] md:text-6xl">Find your <span class="italic-pop">perfect job</span></h1>`, { delay: 0.08 })}
     ${rv(`<p class="mt-5 max-w-xl text-[16px] text-ink-soft">Every role below is reviewed and approved by our team before it goes live. Apply in minutes — no account needed.</p>`, { delay: 0.14 })}
     ${rv(
-      `<form method="get" action="/job-search" class="mt-10 rounded-[1.75rem] border border-ink/10 bg-cream p-5 md:p-6">
+    `<form method="get" action="/job-search" class="mt-10 rounded-[1.75rem] border border-ink/10 bg-cream p-5 md:p-6">
         <div class="flex flex-col gap-3 md:flex-row">
           <div class="relative flex-1">
             <span class="pointer-events-none absolute top-1/2 left-4.5 -translate-y-1/2 text-ink/40">${icon("search", "", 18)}</span>
@@ -95,8 +95,8 @@ export function jobSearchPage(p: {
           <div>${options(["on-site", "hybrid", "remote"], "mode", "Any mode")}</div>
         </div>
       </form>`,
-      { delay: 0.2 },
-    )}
+    { delay: 0.2 },
+  )}
     <div class="mt-10 flex items-center justify-between gap-4">
       <p class="text-[14px] font-medium text-ink/60"><span class="font-display text-xl font-semibold text-ink">${p.results.length}</span> ${p.results.length === 1 ? "role" : "roles"} found</p>
       ${hasFilters ? `<a href="/job-search" class="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-accent hover:text-accent-deep">${icon("x", "", 14)} Clear filters</a>` : ""}
@@ -201,12 +201,12 @@ export function jobDetailPage(p: {
   <div class="mt-8 grid gap-10 lg:grid-cols-[1.5fr_1fr]">
     <div>
       ${rv(
-        `<div class="flex flex-wrap items-center gap-2.5">
+    `<div class="flex flex-wrap items-center gap-2.5">
           <span class="rounded-full bg-sage px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-pine uppercase">${esc(job.employmentType)}</span>
           <span class="rounded-full border border-ink/12 px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-ink/60 uppercase">${esc(job.workMode)}</span>
           ${job.featured ? `<span class="rounded-full bg-gold/25 px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-ink uppercase">Featured</span>` : ""}
         </div>`,
-      )}
+  )}
       ${rv(`<h1 class="h-display mt-5 text-4xl leading-[1.05] md:text-5xl">${esc(job.title)}</h1>`, { delay: 0.06 })}
       ${rv(`<p class="mt-3 text-[16px] font-medium text-ink-soft">${esc(company.name)} · ${esc(job.industry)} · Posted ${formatDate(job.createdAt)}</p>`, { delay: 0.1 })}
       ${rv(`<div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">${meta}</div>`, { delay: 0.14 })}
@@ -215,13 +215,13 @@ export function jobDetailPage(p: {
       ${job.responsibilities.length ? rv(`<h2 class="font-display mt-9 text-2xl font-medium tracking-tight">What you'll own</h2>${list(job.responsibilities, "mt-0.5 shrink-0 text-moss")}`) : ""}
       ${job.requirements.length ? rv(`<h2 class="font-display mt-9 text-2xl font-medium tracking-tight">What you'll bring</h2>${list(job.requirements, "mt-0.5 shrink-0 text-accent")}`) : ""}
       ${job.skills.length ? rv(
-        `<h2 class="font-display mt-9 text-2xl font-medium tracking-tight">Key skills</h2>
+    `<h2 class="font-display mt-9 text-2xl font-medium tracking-tight">Key skills</h2>
         <div class="mt-4 flex flex-wrap gap-2.5">${job.skills
-          .map((s) => `<a href="/job-search?q=${encodeURIComponent(s)}" class="rounded-full border border-ink/15 bg-cream px-4 py-2 text-[13px] font-medium text-ink/70 transition-colors hover:border-accent hover:text-accent">${esc(s)}</a>`)
-          .join("")}</div>`,
-      ) : ""}
+      .map((s) => `<a href="/job-search?q=${encodeURIComponent(s)}" class="rounded-full border border-ink/15 bg-cream px-4 py-2 text-[13px] font-medium text-ink/70 transition-colors hover:border-accent hover:text-accent">${esc(s)}</a>`)
+      .join("")}</div>`,
+  ) : ""}
       ${rv(
-        `<div class="mt-11 rounded-3xl bg-ink p-7 text-cream md:p-8">
+    `<div class="mt-11 rounded-3xl bg-ink p-7 text-cream md:p-8">
           <div class="flex items-start gap-5">
             <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-cream/10 font-display text-xl font-semibold italic">${esc(company.name.slice(0, 1))}</span>
             <div>
@@ -235,30 +235,29 @@ export function jobDetailPage(p: {
             </div>
           </div>
         </div>`,
-        { delay: 0.28 },
-      )}
+    { delay: 0.28 },
+  )}
     </div>
     <aside class="lg:sticky lg:top-28 lg:self-start">
       ${rv(
-        `<div class="rounded-[1.75rem] border border-ink/10 bg-cream p-6 shadow-xl shadow-ink/5 md:p-7">
+    `<div class="rounded-[1.75rem] border border-ink/10 bg-cream p-6 shadow-xl shadow-ink/5 md:p-7">
           ${p.applied
-            ? applyForm({ jobId: job.id, success: true, message: p.applyMessage })
-            : `<h2 class="font-display text-2xl font-medium">Apply <span class="italic-pop">now</span></h2>
+      ? applyForm({ jobId: job.id, success: true, message: p.applyMessage })
+      : `<h2 class="font-display text-2xl font-medium">Apply <span class="italic-pop">now</span></h2>
                <p class="mt-1.5 text-[13.5px] text-ink-soft">No account needed — your details go straight to the Tranquil Peeplz recruiters handling this role.</p>
                <div class="mt-5">${applyForm({ jobId: job.id, errors: p.applyErrors, values: p.applyValues })}</div>`}
         </div>`,
-        { delay: 0.12 },
-      )}
+    { delay: 0.12 },
+  )}
     </aside>
   </div>
-  ${
-    p.similar.length
+  ${p.similar.length
       ? `<section class="mt-20">
           <h2 class="font-display text-3xl font-medium tracking-tight">Similar <span class="italic-pop">roles</span></h2>
           <div class="mt-8 grid gap-5 md:grid-cols-3">${p.similar.map((s) => jobCard(s.job, s.company)).join("")}</div>
         </section>`
       : ""
-  }
+    }
 </div>`;
 }
 
