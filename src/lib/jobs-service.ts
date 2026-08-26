@@ -188,7 +188,121 @@ export async function submitJobForReview(
     ].join("\n"),
   });
 
-  return { ok: true, jobId: job.id, companyName: d.companyName.trim() };
+  // Notify admin of new pending job
+  await sendNewJobPendingEmail(
+    job.id,
+    d.title,
+    d.companyName.trim(),
+    d.contactName,
+    d.contactEmail,
+    d.industry,
+    d.location,
+    d.workMode,
+    d.employmentType,
+  );
+
+  return {
+    ok: true,
+    jobId: job.id,
+    companyName: d.companyName.trim()
+  };
+}
+
+/**
+ * Send approval notification to employer when job is approved.
+ */
+export async function sendJobApprovedEmail(
+  jobId: string,
+  contactEmail: string,
+  contactName: string,
+  title: string,
+  companyName: string
+): Promise<{ delivered: boolean }> {
+  return sendEmail({
+    kind: "job_approved",
+    to: contactEmail,
+    subject: `Your role "${title}" is now live!`,
+    body: [
+      `Hi ${contactName.trim().split(" ")[0]},`,
+      "",
+      `Great news! Your role "${title}" at ${companyName.trim()} has been approved and is now live on the Tranquil Peeplz job board.`,
+      "",
+      "You can view it here: https://tranquilpeeplz.com/job-search",
+      "",
+      "Our team will actively source candidates and reach out with matches.",
+      "",
+      "Warm regards,",
+      "Tranquil Peeplz — Recruitment Consultancy, Bangalore",
+      "contact@tranquilpeeplz.com · +91 80 4979 3366",
+    ].join("\n"),
+  });
+}
+
+/**
+ * Send confirmation email to job seeker after applying.
+ */
+export async function sendApplicationConfirmationEmail(
+  jobId: string,
+  applicantEmail: string,
+  applicantName: string,
+  jobTitle: string,
+  companyName: string
+): Promise<{ delivered: boolean }> {
+  return sendEmail({
+    kind: "application_received",
+    to: applicantEmail,
+    subject: `Application received — ${jobTitle} at ${companyName}`,
+    body: [
+      `Hi ${applicantName.trim().split(" ")[0]},`,
+      "",
+      `Thank you for applying to "${jobTitle}" at ${companyName.trim()} through Tranquil Peeplz.`,
+      "",
+      "We've received your application and our recruitment team will review it shortly.",
+      "If your profile matches the role requirements, a recruiter will contact you directly.",
+      "",
+      "You can browse more opportunities here: https://tranquilpeeplz.com/job-search",
+      "",
+      "Best regards,",
+      "Tranquil Peeplz — Recruitment Consultancy, Bangalore",
+      "contact@tranquilpeeplz.com · +91 80 4979 3366",
+    ].join("\n"),
+  });
+}
+
+/**
+ * Send notification to admin when a new job is submitted for approval.
+ */
+export async function sendNewJobPendingEmail(
+  jobId: string,
+  title: string,
+  companyName: string,
+  contactName: string,
+  contactEmail: string,
+  industry: string,
+  location: string,
+  workMode: string,
+  employmentType: string
+): Promise<{ delivered: boolean }> {
+  return sendEmail({
+    kind: "new_job_pending",
+    to: OWNER_EMAIL,
+    subject: `New job pending approval — ${title} (${companyName})`,
+    body: [
+      `A new job has been submitted for approval:`,
+      "",
+      `Title: ${title}`,
+      `Company: ${companyName}`,
+      `Industry: ${industry}`,
+      `Location: ${location}`,
+      `Work Mode: ${workMode}`,
+      `Employment Type: ${employmentType}`,
+      `Contact: ${contactName} (${contactEmail})`,
+      "",
+      "Review and approve in the admin dashboard: https://tranquilpeeplz.com/admin",
+      "",
+      "— Tranquil Peeplz System",
+    ].join("\n"),
+  });
 }
 
 export type SubmitApplicationResult =
@@ -285,6 +399,15 @@ export async function submitJobApplication(
       content: csv,
     },
   });
+
+  // Send confirmation email to applicant
+  await sendApplicationConfirmationEmail(
+    application.id,
+    d.applicantEmail,
+    d.applicantName,
+    row.job.title,
+    row.companyName,
+  );
 
   return {
     ok: true,

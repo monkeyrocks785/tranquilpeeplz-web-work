@@ -3,7 +3,7 @@ import { db } from "../db";
 import { emailLogs } from "../db/schema";
 import { eq } from "drizzle-orm";
 
-export type EmailKind = "job_thank_you" | "new_application_owner";
+export type EmailKind = "job_thank_you" | "new_application_owner" | "job_approved" | "application_received" | "new_job_pending";
 
 const FROM =
   process.env.EMAIL_FROM ?? "Tranquil Peeplz <no-reply@tranquilpeeplz.com>";

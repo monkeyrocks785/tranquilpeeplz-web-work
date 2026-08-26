@@ -30,7 +30,7 @@ import {
   listJobs,
   listAllApplications as listAppsRaw,
 } from "./lib/data";
-import { submitJobApplication, submitJobForReview } from "./lib/jobs-service";
+import { submitJobApplication, submitJobForReview, sendJobApprovedEmail } from "./lib/jobs-service";
 import { ensureDatabase } from "./db/bootstrap";
 import { seedIfEmpty } from "./db/seed";
 import { db } from "./db";
@@ -277,8 +277,28 @@ app.post("/admin/jobs/:id/:action", asyncRoute(async (req, res) => {
   const id = String(req.params.id);
   const action = String(req.params.action);
   const status = action === "approve" || action === "reopen" ? "open" : action === "close" ? "closed" : null;
+
+  // Fetch job details before updating for email notification
+  const [job] = await db
+    .select({ job: jobs, companyName: companies.name })
+    .from(jobs)
+    .innerJoin(companies, eq(jobs.companyId, companies.id))
+    .where(eq(jobs.id, id))
+    .limit(1);
+
   if (status) {
     await db.update(jobs).set({ status: status as "open" | "closed" }).where(eq(jobs.id, id));
+
+    // Send approval email to employer when job is approved
+    if ((action === "approve" || action === "reopen") && job) {
+      await sendJobApprovedEmail(
+        job.job.id,
+        job.job.contactEmail,
+        job.job.contactName,
+        job.job.title,
+        job.companyName
+      );
+    }
   }
   res.redirect("/admin");
 }));
