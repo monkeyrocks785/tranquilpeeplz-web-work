@@ -3,13 +3,19 @@
   "outputDirectory": "public",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
+  "framework": "node",
   "regions": ["iad1"],
   "functions": {
-    "src/app.ts": {
+    "api/index.ts": {
       "maxDuration": 30
     }
   },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ],
   "env": {
     "DATABASE_URL": "@database_url",
     "SMTP_URL": "@smtp_url",
