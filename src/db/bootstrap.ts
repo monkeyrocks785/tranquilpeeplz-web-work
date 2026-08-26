@@ -6,8 +6,8 @@ import { pool } from "./index";
  * Runs `CREATE … IF NOT EXISTS` for every table, enum and index the app
  * needs, then seeds demo content when the database is empty. This runs
  * automatically once per server boot (see src/instrumentation.ts), so a
- * fresh deploy on Vercel — pointed at an empty hosted Postgres (Neon,
- * Vercel Postgres, Supabase…) — becomes fully functional on first request.
+ * fresh deploy on Vercel — pointed at an empty hosted Postgres (Aiven,
+ * Neon, Vercel Postgres, Supabase…) — becomes fully functional on first request.
  *
  * Keep this in sync with src/db/schema.ts. For iterative local development
  * you can also run `npm run db:push` (drizzle-kit).

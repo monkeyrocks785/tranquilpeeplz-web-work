@@ -8,9 +8,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "noEmit": true,
-    "types": ["node"],
-    "baseUrl": "."
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "types": ["node"]
   },
-  "include": ["server.ts", "api", "src/**/*.ts"]
+  "include": ["server.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

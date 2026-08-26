@@ -1,8 +1,8 @@
+import "dotenv/config";
+
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
-// Prefer DATABASE_URL; fall back to POSTGRES_URL, which the Vercel Postgres
-// integration injects automatically when you connect a database store.
 const databaseUrl = process.env.DATABASE_URL ?? process.env.POSTGRES_URL;
 
 if (!databaseUrl) {
@@ -11,7 +11,7 @@ if (!databaseUrl) {
   );
 }
 
-// Hosted Postgres providers (Neon, Vercel Postgres, Supabase…) require SSL.
+// Hosted Postgres providers (Aiven, Neon, Vercel Postgres, Supabase…) require SSL.
 // Local development (localhost / 127.0.0.1) does not.
 const isLocal = /localhost|127\.0\.0\.1/.test(databaseUrl);
 const sslDisabled = /sslmode=disable/.test(databaseUrl);
