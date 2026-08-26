@@ -539,46 +539,19 @@ export function contactPage(p?: {
   errors?: Record<string, string[] | undefined>;
   values?: Record<string, string>;
 }): string {
-  const info = [
-    { icon: "map-pin", label: "Visit us", lines: ["#12, MPD Complex, 3rd Floor, 5th Block,", "Koramangala, Bangalore – 560095"], href: "https://maps.google.com/?q=Koramangala+5th+Block+Bangalore" },
-    { icon: "phone", label: "Call us", lines: ["+91 80 4979 3366 / 6633"], href: "tel:+918049793366" },
-    { icon: "mail", label: "Write to us", lines: ["contact@tranquilpeeplz.com"], href: "mailto:contact@tranquilpeeplz.com" },
-    { icon: "clock-3", label: "Working hours", lines: ["Monday – Saturday", "9:30 AM – 6:30 PM IST"], href: "" },
-  ]
-    .map(
-      (it, i) => rv(
-        `<div class="card-hover flex items-start gap-5 rounded-3xl border border-ink/10 bg-cream p-6">
-          <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-sage text-pine">${icon(it.icon, "", 21)}</span>
-          <div>
-            <h2 class="text-[11px] font-semibold tracking-[0.2em] text-ink/45 uppercase">${it.label}</h2>
-            ${it.lines
-          .map((l) =>
-            it.href
-              ? `<a href="${it.href}" class="block text-[15.5px] font-medium text-ink transition-colors hover:text-accent">${l}</a>`
-              : `<p class="text-[15.5px] font-medium text-ink">${l}</p>`,
-          )
-          .join("")}
-          </div>
-        </div>`,
-        { delay: 0.06 * i },
-      ),
-    )
-    .join("");
-
   const v = (n: string) => esc(p?.values?.[n] ?? "");
   let formInner: string;
   if (p?.success) {
-    formInner = `<div class="rounded-3xl border border-moss/25 bg-moss/10 p-8 text-center">
-      <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-pine text-cream">${icon("circle-check", "", 26)}</span>
-      <h3 class="font-display mt-5 text-2xl font-medium text-ink">Message received</h3>
-      <p class="mt-2 text-[14.5px] text-ink-soft">${esc(p.message ?? "")}</p>
+    formInner = `<div class="rounded-xl border border-moss/25 bg-moss/10 p-8 text-center">
+      <span class="mx-auto grid h-10 w-10 place-items-center rounded-full bg-accent text-cream">${icon("circle-check", "", 22)}</span>
+      <h3 class="font-display mt-3 text-lg font-medium text-ink">Message received</h3>
+      <p class="mt-1 text-[13px] text-ink-soft">${esc(p.message ?? "")}</p>
     </div>`;
   } else {
     const topicOpts = [
-      ["general", "General enquiry"],
-      ["employer", "An employer looking to hire"],
-      ["seeker", "A candidate looking for a role"],
-      ["partnership", "A potential partner"],
+      ["general", "General Enquiry"],
+      ["staffing", "Staffing Service"],
+      ["jobseeker", "Jobseeker"],
     ]
       .map(([val, label]) => `<option value="${val}"${p?.values?.topic === val ? " selected" : ""}>${label}</option>`)
       .join("");
@@ -587,56 +560,110 @@ export function contactPage(p?: {
       <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
       <div class="grid gap-5 sm:grid-cols-2">
         <div>
-          <label class="field-label" for="c-name">Full name</label>
-          <input id="c-name" name="name" class="field" placeholder="Asha Rao" value="${v("name")}" />
+          <label class="field-label" for="c-name">Your name</label>
+          <input id="c-name" name="name" class="field" placeholder="Asha Rao" value="${v("name")}" required />
           ${fieldError(p?.errors, "name")}
         </div>
         <div>
-          <label class="field-label" for="c-email">Email</label>
-          <input id="c-email" name="email" type="email" class="field" placeholder="you@company.com" value="${v("email")}" />
+          <label class="field-label" for="c-email">Your email</label>
+          <input id="c-email" name="email" type="email" class="field" placeholder="you@company.com" value="${v("email")}" required />
           ${fieldError(p?.errors, "email")}
         </div>
       </div>
-      <div class="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label class="field-label" for="c-phone">Phone <span class="normal-case text-ink/40">(optional)</span></label>
-          <input id="c-phone" name="phone" class="field" placeholder="+91 98XXX XXXXX" value="${v("phone")}" />
-          ${fieldError(p?.errors, "phone")}
-        </div>
-        <div>
-          <label class="field-label" for="c-topic">I'm reaching out as</label>
-          <select id="c-topic" name="topic" class="field">${topicOpts}</select>
-        </div>
+      <div>
+        <label class="field-label" for="c-phone">Phone Number</label>
+        <input id="c-phone" name="phone" class="field" placeholder="+91 98XXX XXXXX" value="${v("phone")}" />
+        ${fieldError(p?.errors, "phone")}
       </div>
       <div>
-        <label class="field-label" for="c-message">Message</label>
+        <label class="field-label" for="c-topic">How can we help you?</label>
+        <select id="c-topic" name="topic" class="field" required>${topicOpts}</select>
+        ${fieldError(p?.errors, "topic")}
+      </div>
+      <div>
+        <label class="field-label" for="c-message">Your message <span class="normal-case text-ink/40">(optional)</span></label>
         <textarea id="c-message" name="message" rows="5" class="field resize-none" placeholder="Tell us about your hiring challenge or career goals…">${v("message")}</textarea>
         ${fieldError(p?.errors, "message")}
       </div>
-      <button type="submit" class="btn btn-accent">Send message ${icon("arrow-right", "", 16)}</button>
+      <button type="submit" class="btn btn-accent w-full sm:w-auto">Submit ${icon("arrow-right", "", 16)}</button>
     </form>`;
   }
 
-  return `<div class="container-x pt-10 pb-24 lg:pt-14">
-    ${sectionHeading({
-    eyebrow: "Contact Us",
-    title: `Let's start the<br/><span class="italic-pop">conversation</span>`,
-    intro: "Hiring requirements, candidate queries or partnership ideas — message us and a real human replies within one business day.",
-  })}
-    <div class="mt-14 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
-      <div class="space-y-4">
-        ${info}
-        ${rv(`<div class="rounded-3xl bg-ink p-7 text-cream">
-          <p class="font-display text-xl font-medium">Prefer to walk in?</p>
-          <p class="mt-2 text-[14px] leading-relaxed text-cream/70">Our Koramangala office is two minutes from the 5th Block signal. Candidates are welcome for profile registrations and consultations — an appointment helps us serve you faster.</p>
-        </div>`, { delay: 0.26 })}
+  return `
+    <!-- Banner Section - With background image -->
+    <section class="relative overflow-hidden py-16 md:py-20 lg:py-24">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200" alt="Modern office building entrance" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
       </div>
-      ${rv(`<div class="rounded-[2rem] border border-ink/10 bg-cream p-7 shadow-xl shadow-ink/5 md:p-9">
-        <h2 class="font-display text-2xl font-medium tracking-tight">Send us a <span class="italic-pop">message</span></h2>
-        <div class="mt-6">${formInner}</div>
-      </div>`, { delay: 0.12 })}
-    </div>
-  </div>`;
+      <div class="container-x relative z-10 text-center">
+        ${rv(`<p class="eyebrow justify-center !text-gold" style="display:inline-flex">Contact Us</p>
+        <h1 class="h-display mt-4 text-4xl md:text-5xl lg:text-6xl text-cream">
+            Get In Touch
+          </h1>`, { delay: 0.08 })}
+        ${rv(`<p class="mt-5 max-w-2xl mx-auto text-[16px] leading-relaxed text-cream/70">We'd love to hear from you. Let's start a conversation.</p>`, { delay: 0.16 })}
+      </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="container-x -mt-10 py-16 lg:py-24 relative z-10">
+      <div class="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
+        <!-- Contact Information -->
+        <div class="space-y-8">
+          ${rv(`<p class="eyebrow justify-start !text-gold" style="display:inline-flex">Contact Information</p>
+          <h2 class="h-display mt-3 text-3xl md:text-4xl text-ink">Contact Information</h2>
+          <p class="mt-4 text-[16px] leading-relaxed text-ink-soft">Have a question or want to discuss your recruitment needs? We're here to help.</p>`, { delay: 0.08 })}
+
+          <div class="space-y-6">
+            ${rv(`<div class="flex gap-4">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-cream">${icon("map-pin", "", 20)}</span>
+              <div>
+                <h3 class="text-[11px] font-semibold tracking-[0.15em] text-ink/45 uppercase">Office Address</h3>
+                <address class="mt-1.5 not-italic text-[15px] font-medium text-ink leading-relaxed">
+                  #12, MPD Complex, 2nd Floor, 5th Block,<br>Koramangala, Bangalore – 560095
+                </address>
+              </div>
+            </div>`, { delay: 0.12 })}
+
+            ${rv(`<div class="flex gap-4">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-cream">${icon("phone", "", 20)}</span>
+              <div>
+                <h3 class="text-[11px] font-semibold tracking-[0.15em] text-ink/45 uppercase">Phone</h3>
+                <div class="mt-1.5 space-y-1 text-[15px] font-medium text-ink leading-relaxed">
+                  <a href="tel:+918049793366" class="transition-colors hover:text-accent">Landline: 080 4979 3366 / 6633</a>
+                  <a href="tel:+918951274950" class="transition-colors hover:text-accent">Mobile: 89512 74950</a>
+                </div>
+              </div>
+            </div>`, { delay: 0.16 })}
+
+            ${rv(`<div class="flex gap-4">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-cream">${icon("mail", "", 20)}</span>
+              <div>
+                <h3 class="text-[11px] font-semibold tracking-[0.15em] text-ink/45 uppercase">Email</h3>
+                <a href="mailto:contact@tranquilpeeplz.com" class="mt-1.5 block text-[15px] font-medium text-ink transition-colors hover:text-accent">contact@tranquilpeeplz.com</a>
+              </div>
+            </div>`, { delay: 0.2 })}
+          </div>
+
+          <!-- Walk-in Info -->
+          ${rv(`<a href="https://maps.google.com/?q=Koramangala+5th+Block+Bangalore" class="card-hover group flex items-start gap-4 rounded-2xl border border-ink/10 bg-gradient-to-r from-ink to-ink/80 p-6 text-cream transition-all duration-300 hover:border-accent hover:shadow-xl hover:-translate-y-1">
+            <div class="flex-1">
+              <p class="font-display text-lg font-medium">Prefer to walk in?</p>
+              <p class="mt-2 text-[14px] leading-relaxed text-cream/80">Our Koramangala office is two minutes from the 5th Block signal. Candidates welcome for profile registrations and consultations — an appointment helps us serve you faster.</p>
+              <span class="inline-flex items-center gap-2 mt-3 text-[12px] font-semibold tracking-[0.1em] text-accent/80 group-hover:text-accent">Get directions ${icon("arrow-up-right", "", 14)}</span>
+            </div>
+          </a>`, { delay: 0.24 })}
+        </div>
+
+        <!-- Form Card -->
+        ${rv(`<div class="rounded-2xl border border-ink/10 bg-cream p-6 md:p-8 shadow-xl shadow-ink/10">
+          ${rv(`<h2 class="font-display text-2xl font-medium tracking-tight">Send Us a <span class="italic-pop">Message</span></h2>`, { delay: 0.1 })}
+          <div class="mt-6">${formInner}</div>
+        </div>`, { delay: 0.15 })}
+      </div>
+    </section>
+  `;
 }
 
 export function privacyPage(): string {
