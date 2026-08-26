@@ -33,22 +33,27 @@ function logo(light = false): string {
 }
 
 function header(path: string): string {
+  const isHome = path === "/";
   const links = NAV.map(
     (n) =>
-      `<a href="${n.href}" class="link-underline text-[13px] font-medium tracking-wide ${path.startsWith(n.href) ? "text-accent" : "text-ink/75 hover:text-ink"}">${n.label}</a>`,
+      `<a href="${n.href}" class="link-underline text-[13px] font-medium tracking-wide ${path.startsWith(n.href) ? "text-accent" : (isHome ? "text-cream/90 hover:text-cream" : "text-ink/75 hover:text-ink")}">${n.label}</a>`,
   ).join("\n      ");
   const mobileLinks = [{ href: "/", label: "Home" }, ...NAV]
     .map(
-      (n, i) => `<a href="${n.href}" class="group flex items-baseline gap-4 border-b border-cream/10 py-4">
+      (n, i) => `<a href="${n.href}" class="group flex items-baseline gap-4 border-b border-${isHome ? 'cream/10' : 'ink/10'} py-4">
         <span class="font-display text-sm italic text-accent">0${i + 1}</span>
         <span class="font-display text-4xl font-medium tracking-tight transition-colors group-hover:text-accent">${n.label}</span>
       </a>`,
     )
     .join("\n      ");
 
-  return `<header id="site-header" class="fixed inset-x-0 top-0 z-50 py-5">
+  const headerClass = isHome
+    ? "fixed inset-x-0 top-0 z-50 py-5 transition-all duration-500"
+    : "fixed inset-x-0 top-0 z-50 py-5 transition-all duration-500 scrolled";
+
+  return `<header id="site-header" class="${headerClass}">
     <div class="container-x flex items-center justify-between gap-6">
-      ${logo()}
+      ${logo(isHome)}
       <nav class="hidden items-center gap-7 lg:flex">
       ${links}
       </nav>
@@ -56,7 +61,7 @@ function header(path: string): string {
         <a href="/job-search" class="btn btn-outline btn-sm">Browse Jobs</a>
         <a href="/post-a-job" class="btn btn-accent btn-sm">Post a Job ${icon("arrow-up-right", "", 15)}</a>
       </div>
-      <button onclick="openMenu()" class="grid h-11 w-11 place-items-center rounded-full border border-ink/15 text-ink lg:hidden" aria-label="Open menu">${icon("menu", "", 20)}</button>
+      <button onclick="openMenu()" class="grid h-11 w-11 place-items-center rounded-full border border-${isHome ? 'cream/30' : 'ink/15'} text-${isHome ? 'cream' : 'ink'} lg:hidden" aria-label="Open menu">${icon("menu", "", 20)}</button>
     </div>
   </header>
   <div id="mobile-menu" class="fixed inset-0 z-[80] bg-ink text-cream lg:hidden">
@@ -72,7 +77,7 @@ function header(path: string): string {
       <a href="/job-search" class="btn btn-ghost-light">Browse jobs</a>
     </div>
   </div>
-  <div class="h-[76px]"></div>`;
+  ${(path === "/" || path === "/about-us") ? "" : `<div class="h-[76px]"></div>`}`;
 }
 
 function footer(): string {
@@ -148,8 +153,19 @@ function footer(): string {
 
 const PAGE_SCRIPT = `(function(){
   var header = document.getElementById('site-header');
-  function onScroll(){ if(header) header.classList.toggle('scrolled', window.scrollY > 24); }
-  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  var hero = document.getElementById('hero');
+
+  function updateHeader() {
+    if (!header || !hero) return;
+    var heroRect = hero.getBoundingClientRect();
+    var isHeroVisible = heroRect.bottom > 0 && heroRect.top < window.innerHeight;
+    header.classList.toggle('scrolled', !isHeroVisible);
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('resize', updateHeader, { passive: true });
+
   window.openMenu = function(){ document.getElementById('mobile-menu').classList.add('open'); document.body.classList.add('menu-open'); };
   window.closeMenu = function(){ document.getElementById('mobile-menu').classList.remove('open'); document.body.classList.remove('menu-open'); };
   if ('IntersectionObserver' in window) {

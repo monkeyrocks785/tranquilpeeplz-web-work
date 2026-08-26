@@ -167,8 +167,14 @@ select.field {
 }
 
 /* ---------- header states ---------- */
-#site-header { transition: all 0.5s; }
-#site-header.scrolled { border-bottom: 1px solid rgba(87,58,61,.1); background: rgba(255,255,255,.85); backdrop-filter: blur(16px); padding-block: 0.625rem; }
+#site-header { transition: all 0.5s; background: transparent; }
+#site-header.scrolled { border-bottom: 1px solid rgba(87,58,61,.1); background: rgba(255,255,255,.9); backdrop-filter: blur(16px); padding-block: 0.625rem; }
+
+/* Home page: scrolled state text colors */
+#site-header.scrolled nav a.link-underline { color: #573a3d; }
+#site-header.scrolled nav a.link-underline:hover { color: #573a3d; }
+#site-header.scrolled nav a.link-underline.text-accent { color: #ff5714; }
+#site-header.scrolled button[onclick="openMenu()"] { border-color: rgba(87,58,61,.15); color: #573a3d; }
 #mobile-menu { display: none; }
 #mobile-menu.open { display: block; }
 body.menu-open { overflow: hidden; }

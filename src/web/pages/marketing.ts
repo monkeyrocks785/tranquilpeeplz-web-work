@@ -64,7 +64,7 @@ export function aboutPage(): string {
     .map(
       (x, i) => rv(
         `<div class="text-center">
-          <p class="font-display text-4xl font-semibold tracking-tight text-pine md:text-5xl"><span data-count="${x.v}" data-suffix="${x.s}">0${x.s}</span></p>
+          <p class="font-display text-4xl font-semibold tracking-tight text-accent md:text-5xl"><span data-count="${x.v}" data-suffix="${x.s}">0${x.s}</span></p>
           <p class="mt-2 text-[12px] font-semibold tracking-[0.16em] text-ink/55 uppercase">${x.l}</p>
         </div>`,
         { delay: 0.06 * i },
@@ -88,8 +88,8 @@ export function aboutPage(): string {
   ]
     .map(
       (x, i) => rv(
-        `<div class="card-hover h-full rounded-[1.75rem] border border-ink/10 bg-cream p-8">
-          <span class="font-display text-5xl font-semibold text-accent/80">0${i + 1}</span>
+        `<div class="card-hover h-full rounded-[1.75rem] border border-ink/10 bg-cream p-8 text-center">
+          <span class="inline-block font-display text-5xl font-semibold text-accent/80 mb-4">0${i + 1}</span>
           <h3 class="font-display mt-5 text-2xl font-medium tracking-tight">${x.title}</h3>
           <p class="mt-3 text-[14.5px] leading-relaxed text-ink-soft">${x.copy}</p>
         </div>`,
@@ -108,7 +108,7 @@ export function aboutPage(): string {
       (m, i) => rv(
         `<div class="relative border-t border-cream/15 pt-6">
           <span class="absolute -top-px left-0 h-px w-12 bg-gold"></span>
-          <p class="font-display text-2xl font-semibold text-gold italic">${m.year}</p>
+          <p class="font-display text-2xl font-semibold text-accent italic">${m.year}</p>
           <h3 class="font-display mt-2 text-xl font-medium">${m.title}</h3>
           <p class="mt-2.5 text-[13.5px] leading-relaxed text-cream/65">${m.copy}</p>
         </div>`,
@@ -117,42 +117,86 @@ export function aboutPage(): string {
     )
     .join("");
 
-  return `${hero({
-    eyebrow: "About Tranquil Peeplz",
-    title: `Recruiters who care about<br/><span class="italic-pop">the outcome</span>`,
-    intro:
-      "We started Tranquil Peeplz in Bangalore with a simple belief: when people and businesses move together with speed, trust and purpose, growth becomes unstoppable. Today we partner with organisations across eight industries — staffing their teams, hiring their leaders, and transforming how their workforce works. We exist to create possibilities, faster.",
-    image: "https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
-    imageAlt: "Our team in a working session",
-    stat: { value: "2021", label: "Founded in Bangalore" },
-    cta: `<a href="/contact-us" class="btn btn-accent">Work with us ${icon("arrow-up-right", "", 16)}</a><a href="/job-search" class="btn btn-outline">Explore open roles</a>`,
-  })}
-  <section class="border-y border-ink/10 bg-cream py-14">
-    <div class="container-x grid grid-cols-2 gap-10 md:grid-cols-4">${ping}</div>
-  </section>
-  <section class="container-x py-24">
-    ${sectionHeading({ align: "center", eyebrow: "How we work", title: `Three principles,<br/>zero <span class="italic-pop">compromises</span>` })}
-    <div class="mt-14 grid gap-6 md:grid-cols-3">${principles}</div>
-  </section>
-  <section class="bg-ink py-24 text-cream">
-    <div class="container-x">
-      ${sectionHeading({ dark: true, eyebrow: "Our journey", title: `A bold idea, <span class="italic-pop">growing fast</span>` })}
-      <div class="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">${milestones}</div>
-    </div>
-  </section>
-  <section class="container-x py-24">
-    <div class="grid items-center gap-10 rounded-[2rem] border border-ink/10 bg-cream p-8 md:p-12 lg:grid-cols-[1.2fr_0.8fr]">
-      <div>
-        <p class="eyebrow" style="display:inline-flex">Visit us</p>
-        <h2 class="h-display mt-4 text-3xl md:text-4xl">Drop by Koramangala — <span class="italic-pop">the coffee's on us</span></h2>
-        <p class="mt-4 text-[15px] leading-relaxed text-ink-soft">#12, MPD Complex, 3rd Floor, 5th Block, Koramangala, Bangalore – 560095 · +91 80 4979 3366 / 6633 · contact@tranquilpeeplz.com</p>
+  const values = [
+    { icon: "handshake", title: "Trust at the Core", copy: "Transparent, reliable, and honest in every conversation. We deliver on every promise — every time." },
+    { icon: "users-round", title: "People-First Focus", copy: "Peeplz means people, not profiles. Every candidate is a person with ambitions; every client a partner." },
+    { icon: "badge-check", title: "Excellence Always", copy: "We treat every engagement as a benchmark — for quality, for speed, and for how hiring should feel." },
+    { icon: "zap", title: "Speed with Purpose", copy: "Fast, because the market is. But never frantic — every move is deliberate and built to last." },
+    { icon: "building-2", title: "Global Vision", copy: "Rooted in Bangalore, building toward a unified platform for hiring and staffing across the world." },
+    { icon: "sparkles", title: "Lasting Impact", copy: "Growth you can measure — in careers launched, teams strengthened and businesses that keep compounding." },
+  ]
+    .map(
+      (v, i) => rv(
+        `<div class="flex gap-4">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-cream">${icon(v.icon, "", 20)}</span>
+          <div>
+            <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
+            <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
+          </div>
+        </div>`,
+        { delay: 0.05 * i },
+      ),
+    )
+    .join("");
+
+  return `
+    <!-- Banner Section -->
+    <section class="relative overflow-hidden py-16 md:py-24 lg:py-32">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200" alt="" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
       </div>
-      <div class="flex flex-wrap gap-4 lg:justify-end">
-        <a href="/contact-us" class="btn btn-primary">Get in touch ${icon("arrow-up-right", "", 15)}</a>
+      <div class="container-x relative z-10 text-center">
+        ${rv(`<h1 class="h-display text-4xl md:text-5xl lg:text-6xl text-cream">
+            Creating Possibilities<br/>
+            <span class="italic-pop text-accent">Faster</span>
+          </h1>`, { delay: 0.08 })}
+        ${rv(`<p class="mt-5 max-w-2xl mx-auto text-[16px] leading-relaxed text-cream/80">We started Tranquil Peeplz in Bangalore with a simple belief: when people and businesses move together with speed, trust and purpose, growth becomes unstoppable. Today we partner with organisations across eight industries — staffing their teams, hiring their leaders, and transforming how their workforce works.</p>`, { delay: 0.16 })}
       </div>
-    </div>
-  </section>
-  ${stamp("hidden")}`;
+    </section>
+
+    <!-- Stats Section -->
+    <section class="border-y border-ink/10 bg-cream py-14">
+      <div class="container-x grid grid-cols-2 gap-10 md:grid-cols-4">${ping}</div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="container-x py-24">
+      ${sectionHeading({ align: "center", eyebrow: "How we work", title: `Three principles,<br/>zero <span class="italic-pop">compromises</span>` })}
+      <div class="mt-14 grid gap-6 md:grid-cols-3">${principles}</div>
+    </section>
+
+    <!-- What Makes Us -->
+    <section class="container-x py-24">
+      ${sectionHeading({ align: "center", eyebrow: "What makes us — who we are", title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`, intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome." })}
+      <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+        ${values}
+      </div>
+    </section>
+
+    <!-- What Makes Us -->
+    <section class="container-x py-24">
+      ${sectionHeading({ align: "center", eyebrow: "What makes us — who we are", title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`, intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome." })}
+      <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+        ${values}
+      </div>
+    </section>
+
+    <!-- Visit Us -->
+    <section class="container-x py-24">
+      <div class="grid items-center gap-10 rounded-[2rem] border border-ink/10 bg-cream p-8 md:p-12 lg:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <p class="eyebrow" style="display:inline-flex">Visit us</p>
+          <h2 class="h-display mt-4 text-3xl md:text-4xl">Drop by Koramangala — <span class="italic-pop">the coffee's on us</span></h2>
+          <p class="mt-4 text-[15px] leading-relaxed text-ink-soft">#12, MPD Complex, 3rd Floor, 5th Block, Koramangala, Bangalore – 560095 · +91 80 4979 3366 / 6633 · contact@tranquilpeeplz.com</p>
+        </div>
+        <div class="flex flex-wrap gap-4 lg:justify-end">
+          <a href="/contact-us" class="btn btn-primary">Get in touch ${icon("arrow-up-right", "", 15)}</a>
+        </div>
+      </div>
+    </section>
+    ${stamp("hidden")}`;
 }
 
 export function forEmployerPage(): string {

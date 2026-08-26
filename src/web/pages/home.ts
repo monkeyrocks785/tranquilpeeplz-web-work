@@ -139,83 +139,35 @@ export function homePage(p: {
 }): string {
   const openJobs = Math.max(p.openJobs, 12);
 
-  const hero = `<section class="relative overflow-hidden">
-    <div class="dot-grid pointer-events-none absolute inset-0 opacity-60"></div>
-    <div class="pointer-events-none absolute -top-32 -right-40 h-[480px] w-[480px] rounded-full bg-sage/60 blur-3xl"></div>
-    <div class="pointer-events-none absolute top-40 -left-40 h-[380px] w-[380px] rounded-full bg-gold/20 blur-3xl"></div>
-    <div class="container-x relative grid items-center gap-14 pt-10 pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:pt-16 lg:pb-28">
-      <div>
-        ${rv(`<p class="eyebrow" style="display:inline-flex">Recruitment · Staffing · Workforce — Bangalore</p>`)}
-        ${rv(
-    `<h1 class="h-display mt-6 text-[13.5vw] leading-[0.98] sm:text-6xl md:text-7xl xl:text-[5.4rem]">
-            Creating<br/>Possibilities<br/>
-            <span class="squiggle italic-pop">Faster.
-              <svg viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 40 4, 80 20, 110 12 S 175 3, 217 13" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
-            </span>
+  const hero = `<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1920" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    </div>
+    <div class="container-x relative z-10 py-20 text-center">
+      <div class="max-w-3xl mx-auto">
+        ${rv(`<h1 class="h-display text-[13.5vw] leading-[0.98] sm:text-6xl md:text-7xl xl:text-[5.4rem] text-cream">
+            Creating Possibilities<br/>
+            <span class="italic-pop text-accent">Faster</span>
           </h1>`,
     { delay: 0.08 },
   )}
-        ${rv(`<p class="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-soft">We empower organisations and people to grow together — through speed, precision and purpose. One trusted partner for staffing, permanent hiring and workforce transformation.</p>`, { delay: 0.16 })}
+        ${rv(`<p class="mt-7 max-w-xl mx-auto text-[17px] leading-relaxed text-cream/80">Tranquil Peeplz transforms how organisations connect and grow with people — through speed, precision and purpose.</p>`, { delay: 0.16 })}
         ${rv(
-    `<div class="mt-9 flex flex-wrap items-center gap-4">
-            <a href="/job-search" class="btn btn-accent">Find Opportunities ${icon("arrow-up-right", "", 16)}</a>
-            <a href="/for-employer" class="btn btn-outline">Hire with Confidence ${icon("arrow-right", "", 16)}</a>
+    `<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href="/for-job-seeker" class="btn btn-accent">Find Jobs ${icon("arrow-up-right", "", 16)}</a>
+            <a href="/for-employer" class="btn btn-ghost-light">Hire Talent ${icon("arrow-right", "", 16)}</a>
           </div>`,
     { delay: 0.24 },
   )}
-        ${rv(
-    `<dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-ink/12 pt-7">
-            ${[
-      { v: 500, s: "+", l: "Professionals placed" },
-      { v: 60, s: "+", l: "Partner companies" },
-      { v: openJobs, s: "", l: "Open roles today" },
-    ]
-      .map(
-        (x) => `<div>
-                <dt class="sr-only">${x.l}</dt>
-                <dd class="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl"><span data-count="${x.v}" data-suffix="${x.s}">0${x.s}</span></dd>
-                <dd class="mt-1 text-[12px] font-medium tracking-wide text-ink/55 uppercase">${x.l}</dd>
-              </div>`,
-      )
-      .join("")}
-          </dl>`,
-    { delay: 0.32 },
-  )}
       </div>
-      ${rv(
-    `<div class="relative hidden lg:block">
-          <div class="relative ml-auto w-full max-w-[430px]">
-            <div class="img-frame aspect-[4/5] shadow-2xl shadow-ink/20">
-              <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=880" alt="Indian professionals collaborating in a modern office" class="object-cover" />
-            </div>
-            <div class="img-frame animate-float absolute -bottom-10 -left-16 w-52 aspect-[4/3] border-4 border-paper shadow-xl shadow-ink/20">
-              <img src="https://images.pexels.com/photos/7720493/pexels-photo-7720493.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=560" alt="Indian candidate in a job interview" class="object-cover" />
-            </div>
-            <div class="animate-float-slow absolute -top-8 -right-6 rounded-3xl border border-ink/10 bg-cream px-5 py-4 shadow-lg shadow-ink/10">
-              <p class="font-display text-2xl font-semibold text-pine">21 days</p>
-              <p class="text-[11px] font-semibold tracking-[0.16em] text-ink/55 uppercase">Avg. time to hire</p>
-            </div>
-            ${stamp("absolute -right-10 bottom-16 text-ink/70")}
-          </div>
-        </div>`,
-    { delay: 0.2 },
-  )}
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-cream/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
     </div>
   </section>
-  ${marquee([
-    "Staffing",
-    "Permanent Hiring",
-    "Workforce Transformation",
-    "Bangalore",
-    "IT",
-    "Healthcare",
-    "Finance",
-    "Manufacturing",
-    "E-commerce",
-    "Education",
-    "Hospitality",
-    "Advertising",
-  ])}`;
+`;
 
   const services = `<section class="container-x py-24">
     <div class="flex flex-wrap items-end justify-between gap-6">
