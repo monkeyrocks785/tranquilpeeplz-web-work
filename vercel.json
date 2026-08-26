@@ -15,13 +15,5 @@
       "source": "/(.*)",
       "destination": "/api/index"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "SMTP_URL": "@smtp_url",
-    "EMAIL_FROM": "@email_from",
-    "OWNER_EMAIL": "@owner_email",
-    "ADMIN_PASSCODE": "@admin_passcode",
-    "SESSION_SECRET": "@session_secret"
-  }
+  ]
 }
