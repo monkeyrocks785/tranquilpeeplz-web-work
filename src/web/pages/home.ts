@@ -155,11 +155,11 @@ export function homePage(p: {
           </h1>`,
     { delay: 0.08 },
   )}
-        ${rv(`<p class="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-soft">Tranquil Peeplz transforms how organisations connect and grow with people — through speed, precision and purpose. One partner for staffing, permanent hiring and everything in between.</p>`, { delay: 0.16 })}
+        ${rv(`<p class="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-soft">We empower organisations and people to grow together — through speed, precision and purpose. One trusted partner for staffing, permanent hiring and workforce transformation.</p>`, { delay: 0.16 })}
         ${rv(
     `<div class="mt-9 flex flex-wrap items-center gap-4">
-            <a href="/job-search" class="btn btn-accent">Find Jobs ${icon("arrow-up-right", "", 16)}</a>
-            <a href="/for-employer" class="btn btn-outline">Hire Talent ${icon("arrow-right", "", 16)}</a>
+            <a href="/job-search" class="btn btn-accent">Find Opportunities ${icon("arrow-up-right", "", 16)}</a>
+            <a href="/for-employer" class="btn btn-outline">Hire with Confidence ${icon("arrow-right", "", 16)}</a>
           </div>`,
     { delay: 0.24 },
   )}
@@ -186,10 +186,10 @@ export function homePage(p: {
     `<div class="relative hidden lg:block">
           <div class="relative ml-auto w-full max-w-[430px]">
             <div class="img-frame aspect-[4/5] shadow-2xl shadow-ink/20">
-              <img src="https://images.pexels.com/photos/3861563/pexels-photo-3861563.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=880" alt="Colleagues in an upbeat conversation at the office" class="object-cover" />
+              <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1100&w=880" alt="Indian professionals collaborating in a modern office" class="object-cover" />
             </div>
             <div class="img-frame animate-float absolute -bottom-10 -left-16 w-52 aspect-[4/3] border-4 border-paper shadow-xl shadow-ink/20">
-              <img src="https://images.pexels.com/photos/4226118/pexels-photo-4226118.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=560" alt="A candidate in a job interview" class="object-cover" />
+              <img src="https://images.pexels.com/photos/7720493/pexels-photo-7720493.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=560" alt="Indian candidate in a job interview" class="object-cover" />
             </div>
             <div class="animate-float-slow absolute -top-8 -right-6 rounded-3xl border border-ink/10 bg-cream px-5 py-4 shadow-lg shadow-ink/10">
               <p class="font-display text-2xl font-semibold text-pine">21 days</p>
@@ -231,7 +231,7 @@ export function homePage(p: {
     (s, i) => rv(
       `<a href="${s.href}" class="card-hover group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-8 hover:border-pine hover:bg-pine">
             <div class="flex items-start justify-between">
-              <span class="font-display text-6xl font-semibold text-ink/10 transition-colors group-hover:text-cream/15">${s.nr}</span>
+              <span class="font-display text-6xl font-semibold text-ink/10 transition-colors group-hover:text-cream">${s.nr}</span>
               ${icon(s.icon, "text-accent transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110", 30)}
             </div>
             <h3 class="font-display mt-8 text-[1.9rem] font-medium tracking-tight text-ink transition-colors group-hover:text-cream">${s.title}</h3>
@@ -287,7 +287,7 @@ export function homePage(p: {
       ${sectionHeading({
     eyebrow: "What makes us — who we are",
     title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`,
-    intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome.",
+    intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome. We open invisible doors to collaboration, creativity and human potential.",
   })}
       <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2">
         ${VALUES.map(
@@ -434,9 +434,9 @@ export function homePage(p: {
     `<div class="relative overflow-hidden rounded-[2.5rem] bg-ink px-8 py-16 text-center text-cream md:py-24">
         <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-50"></div>
         <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl"></div>
-        <p class="eyebrow relative justify-center !text-gold" style="display:inline-flex">Ready to get started?</p>
+        <p class="eyebrow relative justify-center !text-gold" style="display:inline-flex">Ready to create possibilities?</p>
         <h2 class="h-display relative mx-auto mt-5 max-w-3xl text-4xl md:text-6xl">Bridging ambition and <span class="italic-pop">opportunity</span></h2>
-        <p class="relative mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-cream/70">We are the catalyst between businesses and people, precision and speed. Every requirement we take on becomes a promise.</p>
+        <p class="relative mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-cream/70">We are the catalyst between businesses and people, precision and speed. Every requirement we take on becomes a promise to deliver — opening invisible doors to collaboration, creativity and human potential.</p>
         <div class="relative mt-9 flex flex-wrap items-center justify-center gap-4">
           <a href="/post-a-job" class="btn btn-accent">Hire with us ${icon("arrow-up-right", "", 16)}</a>
           <a href="/job-search" class="btn btn-ghost-light">Find your next role</a>

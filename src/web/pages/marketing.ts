@@ -121,7 +121,7 @@ export function aboutPage(): string {
     eyebrow: "About Tranquil Peeplz",
     title: `Recruiters who care about<br/><span class="italic-pop">the outcome</span>`,
     intro:
-      "We started Tranquil Peeplz in Bangalore with a simple belief: when people and businesses move together with speed, trust and purpose, growth becomes unstoppable. Today we partner with organisations across eight industries — staffing their teams, hiring their leaders, and transforming how their workforce works.",
+      "We started Tranquil Peeplz in Bangalore with a simple belief: when people and businesses move together with speed, trust and purpose, growth becomes unstoppable. Today we partner with organisations across eight industries — staffing their teams, hiring their leaders, and transforming how their workforce works. We exist to create possibilities, faster.",
     image: "https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
     imageAlt: "Our team in a working session",
     stat: { value: "2021", label: "Founded in Bangalore" },
@@ -197,9 +197,9 @@ export function forEmployerPage(): string {
     eyebrow: "For Employers",
     title: `Hire right.<br/>Hire <span class="italic-pop">fast.</span> Keep them.`,
     intro:
-      "Your team is your strategy. We help you build it — with staffing that flexes, permanent hiring that sticks, and a truly consultative partner in between. Share a requirement today; it goes live after a quick review.",
-    image: "https://images.pexels.com/photos/5439447/pexels-photo-5439447.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
-    imageAlt: "A hiring conversation in progress",
+      "Your team is your strategy. We help you build it — with staffing that flexes, permanent hiring that sticks, and a truly consultative partner in between. Share a requirement today; it goes live after a quick review. We're your partner in creating possibilities, faster.",
+    image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
+    imageAlt: "Indian hiring managers in discussion",
     stat: { value: "5–7 days", label: "to first shortlist" },
     cta: `<a href="/post-a-job" class="btn btn-accent">Post a job ${icon("arrow-up-right", "", 16)}</a><a href="/job-search" class="btn btn-outline">See the live board</a>`,
     extraBullets: [
@@ -220,7 +220,7 @@ export function forEmployerPage(): string {
     <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
         ${sectionHeading({ eyebrow: "The process", title: `A pipeline you can<br/>actually <span class="italic-pop">follow</span>`, intro: "No black boxes. You'll always know where every requirement stands — who's in the funnel, what's next, and what we need from you." })}
-        ${rv(`<div class="img-frame mt-9 aspect-[16/10] hidden lg:block"><img src="https://images.pexels.com/photos/7495555/pexels-photo-7495555.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=640&w=1000" alt="Recruiters reviewing candidate profiles" class="object-cover" /></div>`, { delay: 0.15 })}
+        ${rv(`<div class="img-frame mt-9 aspect-[16/10] hidden lg:block"><img src="https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=640&w=1000" alt="Indian recruiters reviewing candidate profiles" class="object-cover" /></div>`, { delay: 0.15 })}
       </div>
       <div class="space-y-4">
         ${steps}
@@ -277,9 +277,9 @@ export function forJobSeekerPage(p: { featured: { job: Job; company: Company }[]
     eyebrow: "For Job Seekers",
     title: `Your next role is<br/>already <span class="italic-pop">looking for you</span>`,
     intro:
-      "Great careers aren't found in infinite scroll. Browse approved roles, share your details once, and our recruiters stay with you through every round — no accounts, no noise.",
-    image: "https://images.pexels.com/photos/4340035/pexels-photo-4340035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=800&w=1100",
-    imageAlt: "A professional planning their next career move",
+      "Great careers aren't found in infinite scroll. Browse approved roles, share your details once, and our recruiters stay with you through every round — no accounts, no noise. We're here to open doors to your next possibility.",
+    image: "https://images.pexels.com/photos/7720493/pexels-photo-7720493.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
+    imageAlt: "Indian professional planning their next career move",
     stat: { value: "Free", label: "for candidates, forever" },
     cta: `<a href="/job-search" class="btn btn-accent">Browse live roles ${icon("arrow-up-right", "", 16)}</a><a href="/contact-us" class="btn btn-outline">Talk to a recruiter</a>`,
     extraBullets: [
@@ -339,9 +339,9 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Staffing",
     title: "Staffing that keeps your <span class=\"italic-pop\">momentum</span>",
     intro:
-      "Short-term cover, seasonal ramps or long-haul projects — our staffing solutions deliver vetted, productive people on your schedule, so your business never waits on headcount.",
-    image: "https://images.pexels.com/photos/7888770/pexels-photo-7888770.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
-    imageAlt: "A flexible project team at work",
+      "Short-term cover, seasonal ramps or long-haul projects — our staffing solutions deliver vetted, productive people on your schedule, so your business never waits on headcount. We're your partner in creating possibilities, faster.",
+    image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
+    imageAlt: "Indian project team collaborating",
     stat: { value: "3 weeks", label: "Forty hires for one ramp" },
     offerings: [
       { icon: "calendar-clock", title: "Contract staffing", copy: "Specialists on demand for defined projects — screened, onboarded and managed without adding permanent headcount." },
@@ -370,9 +370,9 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Hiring",
     title: "Hiring beyond <span class=\"italic-pop\">filling seats</span>",
     intro:
-      "The strength of every organisation lies in its people. Our permanent recruitment blends human insight with smart tooling to find hires who define your culture, drive your vision and elevate your success.",
-    image: "https://images.pexels.com/photos/4225921/pexels-photo-4225921.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
-    imageAlt: "A recruiter interviewing a candidate",
+      "The strength of every organisation lies in its people. Our permanent recruitment blends human insight with smart tooling to find hires who define your culture, drive your vision and elevate your success. We open invisible doors to the right talent.",
+    image: "https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
+    imageAlt: "Indian recruiter interviewing a candidate",
     stat: { value: "92%", label: "Placements past probation" },
     offerings: [
       { icon: "user-check", title: "Lateral & niche hiring", copy: "Specialist roles need specialist sourcing. We map the market, approach passive talent and bring you candidates who weren't looking." },
@@ -401,9 +401,9 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Workforce Transformation",
     title: "Build teams that <span class=\"italic-pop\">outgrow the plan</span>",
     intro:
-      "Through strategic consulting, talent development and coaching, we help organisations evolve their people strategy for the long term — so your teams don't just adapt to change, they thrive on it.",
-    image: "https://images.pexels.com/photos/6950050/pexels-photo-6950050.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
-    imageAlt: "Leaders in a strategy workshop",
+      "Through strategic consulting, talent development and coaching, we help organisations evolve their people strategy for the long term — so your teams don't just adapt to change, they thrive on it. We empower people and businesses to grow together.",
+    image: "https://images.pexels.com/photos/7495555/pexels-photo-7495555.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
+    imageAlt: "Indian leaders in a strategy workshop",
     stat: { value: "360°", label: "From org design to coaching" },
     offerings: [
       { icon: "route", title: "Talent strategy & org design", copy: "Workforce planning, role architecture and succession maps that line up your people plan with the business plan." },
