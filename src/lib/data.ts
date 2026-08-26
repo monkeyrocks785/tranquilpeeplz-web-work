@@ -1,4 +1,16 @@
-import { cache } from "react";
+// Simple in-memory cache for async functions (replaces React's cache)
+function cache<TArgs extends unknown[], TReturn>(
+  fn: (...args: TArgs) => Promise<TReturn>
+): (...args: TArgs) => Promise<TReturn> {
+  const map = new Map<string, Promise<TReturn>>();
+  return ((...args: TArgs) => {
+    const key = JSON.stringify(args);
+    if (!map.has(key)) {
+      map.set(key, fn(...args));
+    }
+    return map.get(key)!;
+  });
+}
 import { db } from "../db";
 import {
   jobs,
@@ -76,7 +88,7 @@ export async function listJobs(filters: JobFilters = {}) {
     .limit(60);
 }
 
-export const getJobBySlug = cache(async (slug: string) => {
+export const getJobBySlug = cache(async (slug: string): Promise<{ job: typeof jobs.$inferSelect; company: typeof companies.$inferSelect } | null> => {
   const rows = await db
     .select({ job: jobs, company: companies })
     .from(jobs)
@@ -179,7 +191,7 @@ export async function listBlogPosts() {
   return db.select().from(blogPosts).orderBy(desc(blogPosts.publishedAt));
 }
 
-export const getBlogPostBySlug = cache(async (slug: string) => {
+export const getBlogPostBySlug = cache(async (slug: string): Promise<typeof blogPosts.$inferSelect | null> => {
   const rows = await db
     .select()
     .from(blogPosts)
