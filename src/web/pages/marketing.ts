@@ -98,6 +98,28 @@ export function aboutPage(): string {
     )
     .join("");
 
+  const values = [
+    { icon: "handshake", title: "Trust at the Core", copy: "We build relationships on transparency, reliability, and integrity, delivering on every promise, every time." },
+    { icon: "users-round", title: "People-First Focus", copy: "'PEEPLZ' reflects our commitment to valuing people, not just profiles. Every individual matters, and every connection is personal." },
+    { icon: "badge-check", title: "Excellence Always", copy: "We push boundaries, set new standards, and treat every engagement as a reflection of our commitment to quality." },
+    { icon: "zap", title: "Speed with Purpose", copy: "We act fast because the world does but every move we make is intentional, impactful, and designed to last." },
+    { icon: "building-2", title: "Global Vision", copy: "Expanding horizons, creating a unified platform for hiring and staffing across the world." },
+    { icon: "sparkles", title: "Creating Lasting Impact", copy: "Our work empowers growth that's measurable, meaningful, and built to shape a better future for all." },
+  ]
+    .map(
+      (v, i) => rv(
+        `<div class="flex gap-4">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-cream">${icon(v.icon, "", 20)}</span>
+          <div>
+            <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
+            <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
+          </div>
+        </div>`,
+        { delay: 0.05 * i },
+      ),
+    )
+    .join("");
+
   const milestones = [
     { year: "2021", title: "The idea takes shape", copy: "A small team of recruiters in Koramangala asks a simple question: why does hiring take so long — and feel so impersonal?" },
     { year: "2022", title: "First hundred placements", copy: "Word travels. Startups and hospitals alike start calling us first when a role really matters." },
@@ -110,31 +132,9 @@ export function aboutPage(): string {
           <span class="absolute -top-px left-0 h-px w-12 bg-gold"></span>
           <p class="font-display text-2xl font-semibold text-accent italic">${m.year}</p>
           <h3 class="font-display mt-2 text-xl font-medium">${m.title}</h3>
-          <p class="mt-2.5 text-[13.5px] leading-relaxed text-cream/65">${m.copy}</p>
+          <p class="mt-2.5 text-[13.5px] leading-relaxed text-ink-soft">${m.copy}</p>
         </div>`,
         { delay: 0.08 * i },
-      ),
-    )
-    .join("");
-
-  const values = [
-    { icon: "handshake", title: "Trust at the Core", copy: "Transparent, reliable, and honest in every conversation. We deliver on every promise — every time." },
-    { icon: "users-round", title: "People-First Focus", copy: "Peeplz means people, not profiles. Every candidate is a person with ambitions; every client a partner." },
-    { icon: "badge-check", title: "Excellence Always", copy: "We treat every engagement as a benchmark — for quality, for speed, and for how hiring should feel." },
-    { icon: "zap", title: "Speed with Purpose", copy: "Fast, because the market is. But never frantic — every move is deliberate and built to last." },
-    { icon: "building-2", title: "Global Vision", copy: "Rooted in Bangalore, building toward a unified platform for hiring and staffing across the world." },
-    { icon: "sparkles", title: "Lasting Impact", copy: "Growth you can measure — in careers launched, teams strengthened and businesses that keep compounding." },
-  ]
-    .map(
-      (v, i) => rv(
-        `<div class="flex gap-4">
-          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-cream">${icon(v.icon, "", 20)}</span>
-          <div>
-            <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
-            <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
-          </div>
-        </div>`,
-        { delay: 0.05 * i },
       ),
     )
     .join("");
@@ -175,11 +175,11 @@ export function aboutPage(): string {
       </div>
     </section>
 
-    <!-- What Makes Us -->
-    <section class="container-x py-24">
-      ${sectionHeading({ align: "center", eyebrow: "What makes us — who we are", title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`, intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome." })}
-      <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
-        ${values}
+    <!-- Our Journey -->
+    <section class="bg-cream py-24">
+      <div class="container-x">
+        ${sectionHeading({ align: "center", eyebrow: "Our journey", title: `A bold idea, <span class="italic-pop">growing fast</span>` })}
+        <div class="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">${milestones}</div>
       </div>
     </section>
 
@@ -241,7 +241,7 @@ export function forEmployerPage(): string {
     eyebrow: "For Employers",
     title: `Hire right.<br/>Hire <span class="italic-pop">fast.</span> Keep them.`,
     intro:
-      "Your team is your strategy. We help you build it — with staffing that flexes, permanent hiring that sticks, and a truly consultative partner in between. Share a requirement today; it goes live after a quick review. We're your partner in creating possibilities, faster.",
+      "Your team is your strategy. We help you build it — with staffing that flexes, permanent hiring that sticks, and a truly consultative partner in between. Share a requirement today; it goes live after a quick review.",
     image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
     imageAlt: "Indian hiring managers in discussion",
     stat: { value: "5–7 days", label: "to first shortlist" },
@@ -383,7 +383,7 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Staffing",
     title: "Staffing that keeps your <span class=\"italic-pop\">momentum</span>",
     intro:
-      "Short-term cover, seasonal ramps or long-haul projects — our staffing solutions deliver vetted, productive people on your schedule, so your business never waits on headcount. We're your partner in creating possibilities, faster.",
+      "Short-term cover, seasonal ramps or long-haul projects — our staffing solutions deliver vetted, productive people on your schedule, so your business never waits on headcount.",
     image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
     imageAlt: "Indian project team collaborating",
     stat: { value: "3 weeks", label: "Forty hires for one ramp" },
@@ -414,7 +414,7 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Hiring",
     title: "Hiring beyond <span class=\"italic-pop\">filling seats</span>",
     intro:
-      "The strength of every organisation lies in its people. Our permanent recruitment blends human insight with smart tooling to find hires who define your culture, drive your vision and elevate your success. We open invisible doors to the right talent.",
+      "The strength of every organisation lies in its people. Our permanent recruitment blends human insight with smart tooling to find hires who define your culture, drive your vision and elevate your success.",
     image: "https://images.pexels.com/photos/7495291/pexels-photo-7495291.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
     imageAlt: "Indian recruiter interviewing a candidate",
     stat: { value: "92%", label: "Placements past probation" },
@@ -445,7 +445,7 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
     eyebrow: "Services · Workforce Transformation",
     title: "Build teams that <span class=\"italic-pop\">outgrow the plan</span>",
     intro:
-      "Through strategic consulting, talent development and coaching, we help organisations evolve their people strategy for the long term — so your teams don't just adapt to change, they thrive on it. We empower people and businesses to grow together.",
+      "Through strategic consulting, talent development and coaching, we help organisations evolve their people strategy for the long term — so your teams don't just adapt to change, they thrive on it.",
     image: "https://images.pexels.com/photos/7495555/pexels-photo-7495555.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100",
     imageAlt: "Indian leaders in a strategy workshop",
     stat: { value: "360°", label: "From org design to coaching" },

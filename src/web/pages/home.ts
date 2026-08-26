@@ -9,7 +9,7 @@ const SERVICES = [
     href: "/staffing",
     title: "Staffing",
     icon: "users-round",
-    copy: "Contract, temporary and permanent staffing that flexes with your workload. Skilled people, vetted fast — so projects never lose momentum.",
+    copy: "Our Staffing solutions are designed to meet your evolving workforce needs whether short-term, contract-based, or permanent. We connect you with skilled talent quickly, so your projects never lose momentum. Stay focused on your business. We'll take care of your workforce.",
     tags: ["Contract staffing", "Temp-to-hire", "Volume hiring"],
   },
   {
@@ -17,7 +17,7 @@ const SERVICES = [
     href: "/hiring-recruitment-agency",
     title: "Hiring",
     icon: "search",
-    copy: "Permanent recruitment that goes beyond filling a seat. We find people who fit your culture, share your ambition and stay for the story.",
+    copy: "We understand that the strength of every organization lies in its people. At Tranquil Peeplz, recruitment goes beyond filling vacancies. It's about discovering talent that defines your culture, drives your vision, and elevates your success. We blend human insight with technology to ensure every hire is the right hire.",
     tags: ["Executive search", "Lateral hiring", "Leadership roles"],
   },
   {
@@ -25,7 +25,7 @@ const SERVICES = [
     href: "/workforce-transformation",
     title: "Workforce Transformation",
     icon: "sparkles",
-    copy: "Strategy, upskilling and leadership enablement that help your people grow with the business — not behind it.",
+    copy: "Through strategic consulting, talent development, and coaching, we help organizations evolve their people strategy for long-term growth. From upskilling programs to leadership enablement, we ensure your teams don't just adapt but they thrive. Empower your people and elevate your business.",
     tags: ["Talent strategy", "Upskilling", "Leadership coaching"],
   },
 ];
@@ -33,23 +33,23 @@ const SERVICES = [
 const STEPS = [
   {
     nr: "01",
-    title: "Share your requirements",
-    copy: "Tell us what great looks like for the role — contract, permanent, one hire or fifty. We listen first, then define the brief together.",
+    title: "Share Your Requirements",
+    copy: "Tell us what you're looking for as a perfect candidate whether it's short-term, contract-based, or permanent. We listen, understand, and capture your exact needs.",
   },
   {
     nr: "02",
-    title: "We find the right matches",
-    copy: "Our recruiters and search tools surface candidates aligned on skills, experience and culture — not just keywords.",
+    title: "We Find the Right Matches",
+    copy: "Our team and intelligent search tools identify the most suitable options ensuring skill, experience, and culture alignment.",
   },
   {
     nr: "03",
-    title: "Connect, interview & select",
-    copy: "You meet only the best fits. We coordinate schedules, prep both sides and keep the loop tight.",
+    title: "Connect, Interview & Select",
+    copy: "You meet only the best-fit candidates. We coordinate interviews and assist throughout the selection process.",
   },
   {
     nr: "04",
-    title: "Begin the journey",
-    copy: "Offer, onboarding, follow-through. We stay close after day one so the match turns into momentum.",
+    title: "Begin the Journey",
+    copy: "Once the match is made, we ensure a smooth start helping both sides transition into a successful working relationship.",
   },
 ];
 
@@ -57,32 +57,32 @@ const VALUES = [
   {
     icon: "handshake",
     title: "Trust at the Core",
-    copy: "Transparent, reliable, and honest in every conversation. We deliver on every promise — every time.",
+    copy: "We build relationships on transparency, reliability, and integrity, delivering on every promise, every time.",
   },
   {
     icon: "users-round",
     title: "People-First Focus",
-    copy: "Peeplz means people, not profiles. Every candidate is a person with ambitions; every client a partner.",
+    copy: "'PEEPLZ' reflects our commitment to valuing people, not just profiles. Every individual matters, and every connection is personal.",
   },
   {
     icon: "badge-check",
     title: "Excellence Always",
-    copy: "We treat every engagement as a benchmark — for quality, for speed, and for how hiring should feel.",
+    copy: "We push boundaries, set new standards, and treat every engagement as a reflection of our commitment to quality.",
   },
   {
     icon: "zap",
     title: "Speed with Purpose",
-    copy: "Fast, because the market is. But never frantic — every move is deliberate and built to last.",
+    copy: "We act fast because the world does but every move we make is intentional, impactful, and designed to last.",
   },
   {
     icon: "building-2",
     title: "Global Vision",
-    copy: "Rooted in Bangalore, building toward a unified platform for hiring and staffing across the world.",
+    copy: "Expanding horizons, creating a unified platform for hiring and staffing across the world.",
   },
   {
     icon: "sparkles",
-    title: "Lasting Impact",
-    copy: "Growth you can measure — in careers launched, teams strengthened and businesses that keep compounding.",
+    title: "Creating Lasting Impact",
+    copy: "Our work empowers growth that's measurable, meaningful, and built to shape a better future for all.",
   },
 ];
 
@@ -98,17 +98,17 @@ const INDUSTRIES = [
 ];
 
 const CHALLENGES = [
-  "Weeks lost to slow, unstructured hiring cycles",
-  "Shallow access to quality and niche-skill candidates",
-  "HR teams buried in coordination instead of strategy",
-  "Mis-hires that cost months of salary and momentum",
+  "Hiring delays and missed deadlines finding the right talent",
+  "Limited access to quality candidates and niche skill sets",
+  "HR teams overloaded managing recruitment manually",
+  "Wasted time, money, and effort in unstructured hiring processes",
 ];
 
 const SOLUTIONS = [
-  "A streamlined pipeline that moves in days, not months",
-  "A pre-vetted talent network across eight industries",
-  "Structured shortlists — you interview only real fits",
-  "People who match your values and stay to build",
+  "Faster recruitment with simplified and time-efficient processes",
+  "Right people hired who align with your values and long-term goals",
+  "Reduced costs through smarter hiring and fewer mismatches",
+  "Expert HR guidance to strengthen people and culture strategies",
 ];
 
 const TESTIMONIALS = [
