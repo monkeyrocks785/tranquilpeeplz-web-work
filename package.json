@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run css && tsx watch server.ts",
-    "build": "npm run css && tsc --noEmit",
+    "build": "npm run css && tsc",
     "start": "node dist/server.js",
     "vercel-build": "npm run build",
     "lint": "eslint .",

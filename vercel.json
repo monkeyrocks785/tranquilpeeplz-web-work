@@ -6,7 +6,7 @@
   "framework": "node",
   "regions": ["iad1"],
   "functions": {
-    "api/index.ts": {
+    "dist/api/index.js": {
       "maxDuration": 30
     }
   },

@@ -1,0 +1,331 @@
+import { esc, rv, sectionHeading } from "../html";
+import { icon } from "../icons";
+import { jobCard } from "./jobs";
+const SERVICES = [
+    {
+        nr: "01",
+        href: "/staffing",
+        title: "Staffing",
+        icon: "users-round",
+        copy: "Our Staffing solutions are designed to meet your evolving workforce needs whether short-term, contract-based, or permanent. We connect you with skilled talent quickly, so your projects never lose momentum. Stay focused on your business. We'll take care of your workforce.",
+        tags: ["Contract staffing", "Temp-to-hire", "Volume hiring"],
+    },
+    {
+        nr: "02",
+        href: "/hiring-recruitment-agency",
+        title: "Hiring",
+        icon: "search",
+        copy: "We understand that the strength of every organization lies in its people. At Tranquil Peeplz, recruitment goes beyond filling vacancies. It's about discovering talent that defines your culture, drives your vision, and elevates your success. We blend human insight with technology to ensure every hire is the right hire.",
+        tags: ["Executive search", "Lateral hiring", "Leadership roles"],
+    },
+    {
+        nr: "03",
+        href: "/workforce-transformation",
+        title: "Workforce Transformation",
+        icon: "sparkles",
+        copy: "Through strategic consulting, talent development, and coaching, we help organizations evolve their people strategy for long-term growth. From upskilling programs to leadership enablement, we ensure your teams don't just adapt but they thrive. Empower your people and elevate your business.",
+        tags: ["Talent strategy", "Upskilling", "Leadership coaching"],
+    },
+];
+const STEPS = [
+    {
+        nr: "01",
+        title: "Share Your Requirements",
+        copy: "Tell us what you're looking for as a perfect candidate whether it's short-term, contract-based, or permanent. We listen, understand, and capture your exact needs.",
+    },
+    {
+        nr: "02",
+        title: "We Find the Right Matches",
+        copy: "Our team and intelligent search tools identify the most suitable options ensuring skill, experience, and culture alignment.",
+    },
+    {
+        nr: "03",
+        title: "Connect, Interview & Select",
+        copy: "You meet only the best-fit candidates. We coordinate interviews and assist throughout the selection process.",
+    },
+    {
+        nr: "04",
+        title: "Begin the Journey",
+        copy: "Once the match is made, we ensure a smooth start helping both sides transition into a successful working relationship.",
+    },
+];
+const VALUES = [
+    {
+        icon: "handshake",
+        title: "Trust at the Core",
+        copy: "We build relationships on transparency, reliability, and integrity, delivering on every promise, every time.",
+    },
+    {
+        icon: "users-round",
+        title: "People-First Focus",
+        copy: "'PEEPLZ' reflects our commitment to valuing people, not just profiles. Every individual matters, and every connection is personal.",
+    },
+    {
+        icon: "badge-check",
+        title: "Excellence Always",
+        copy: "We push boundaries, set new standards, and treat every engagement as a reflection of our commitment to quality.",
+    },
+    {
+        icon: "zap",
+        title: "Speed with Purpose",
+        copy: "We act fast because the world does but every move we make is intentional, impactful, and designed to last.",
+    },
+    {
+        icon: "building-2",
+        title: "Global Vision",
+        copy: "Expanding horizons, creating a unified platform for hiring and staffing across the world.",
+    },
+    {
+        icon: "sparkles",
+        title: "Creating Lasting Impact",
+        copy: "Our work empowers growth that's measurable, meaningful, and built to shape a better future for all.",
+    },
+];
+const INDUSTRIES = [
+    { icon: "code-2", name: "IT & Software" },
+    { icon: "heart-pulse", name: "Healthcare" },
+    { icon: "landmark", name: "Finance & Banking" },
+    { icon: "factory", name: "Manufacturing" },
+    { icon: "store", name: "E-commerce & Retail" },
+    { icon: "graduation-cap", name: "Education" },
+    { icon: "utensils-crossed", name: "Hospitality & Travel" },
+    { icon: "megaphone", name: "Advertising & Media" },
+];
+const CHALLENGES = [
+    "Hiring delays and missed deadlines finding the right talent",
+    "Limited access to quality candidates and niche skill sets",
+    "HR teams overloaded managing recruitment manually",
+    "Wasted time, money, and effort in unstructured hiring processes",
+];
+const SOLUTIONS = [
+    "Faster recruitment with simplified and time-efficient processes",
+    "Right people hired who align with your values and long-term goals",
+    "Reduced costs through smarter hiring and fewer mismatches",
+    "Expert HR guidance to strengthen people and culture strategies",
+];
+const TESTIMONIALS = [
+    {
+        quote: "We'd been trying to close a senior engineering role for two months. Tranquil Peeplz sent three genuinely strong candidates in the first week.",
+        name: "VP Engineering",
+        org: "Fintech scale-up, Bangalore",
+    },
+    {
+        quote: "What stood out was the honesty. They told us when our expectations were off, recalibrated the brief, and still delivered ahead of schedule.",
+        name: "Head of HR",
+        org: "Healthcare group",
+    },
+    {
+        quote: "For our seasonal ramp they staffed forty people in three weeks — screened, scheduled, and onboarded. Our team barely lifted a finger.",
+        name: "Operations Director",
+        org: "E-commerce marketplace",
+    },
+];
+export function homePage(p) {
+    const openJobs = Math.max(p.openJobs, 12);
+    const hero = `<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1920" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    </div>
+    <div class="container-x relative z-10 py-20 text-center">
+      <div class="max-w-3xl mx-auto">
+        ${rv(`<h1 class="h-display text-[13.5vw] leading-[0.98] sm:text-6xl md:text-7xl xl:text-[5.4rem] text-cream">
+            Creating Possibilities<br/>
+            <span class="italic-pop text-accent">Faster</span>
+          </h1>`, { delay: 0.08 })}
+        ${rv(`<p class="mt-7 max-w-xl mx-auto text-[17px] leading-relaxed text-cream/80">Tranquil Peeplz transforms how organisations connect and grow with people — through speed, precision and purpose.</p>`, { delay: 0.16 })}
+        ${rv(`<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href="/for-job-seeker" class="btn btn-accent">Find Jobs ${icon("arrow-up-right", "", 16)}</a>
+            <a href="/for-employer" class="btn btn-ghost-light">Hire Talent ${icon("arrow-right", "", 16)}</a>
+          </div>`, { delay: 0.24 })}
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-cream/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+  </section>
+`;
+    const services = `<section class="container-x py-24">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      ${sectionHeading({
+        eyebrow: "Our Services",
+        title: `Three ways we move<br/>your team <span class="italic-pop">forward</span>`,
+        intro: "Hiring and staffing solutions that keep pace with today's demands — and tomorrow's growth.",
+    })}
+      ${rv(`<a href="/for-employer" class="link-underline text-[13px] uppercase tracking-[0.14em] text-ink/70">For employers →</a>`, { delay: 0.1 })}
+    </div>
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      ${SERVICES.map((s, i) => rv(`<a href="${s.href}" class="card-hover group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-ink/10 bg-cream p-8 hover:border-pine hover:bg-pine">
+            <div class="flex items-start justify-between">
+              <span class="font-display text-6xl font-semibold text-ink/10 transition-colors group-hover:text-cream">${s.nr}</span>
+              ${icon(s.icon, "text-accent transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110", 30)}
+            </div>
+            <h3 class="font-display mt-8 text-[1.9rem] font-medium tracking-tight text-ink transition-colors group-hover:text-cream">${s.title}</h3>
+            <p class="mt-3 flex-1 text-[14.5px] leading-relaxed text-ink-soft transition-colors group-hover:text-cream/75">${esc(s.copy)}</p>
+            <div class="mt-6 flex flex-wrap gap-2">${s.tags.map((t) => `<span class="rounded-full border border-ink/12 px-3 py-1 text-[11px] font-medium text-ink/60 transition-colors group-hover:border-cream/25 group-hover:text-cream/70">${esc(t)}</span>`).join("")}</div>
+            <span class="mt-7 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.16em] text-accent uppercase">Explore service ${icon("arrow-up-right", "", 15)}</span>
+          </a>`, { delay: 0.08 * i })).join("")}
+    </div>
+  </section>`;
+    const how = `<section class="relative overflow-hidden bg-ink py-24 text-cream">
+    <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-50"></div>
+    <div class="container-x relative">
+      ${sectionHeading({
+        dark: true,
+        align: "center",
+        eyebrow: "How Tranquil Peeplz Works",
+        title: `From brief to <span class="italic-pop">day one</span>,<br class="hidden md:block"/> in four moves`,
+        intro: "A simple, bold idea: transform how organisations find, connect and grow with talent — faster, smarter, and with purpose.",
+    })}
+      <div class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        ${STEPS.map((st, i) => rv(`<div class="relative border-t border-cream/15 pt-7">
+              <span class="absolute -top-px left-0 h-px w-14 bg-accent"></span>
+              <span class="font-display text-lg font-semibold text-accent italic">${st.nr}</span>
+              <h3 class="font-display mt-3 text-2xl font-medium tracking-tight">${esc(st.title)}</h3>
+              <p class="mt-3 text-[14px] leading-relaxed text-cream/65">${esc(st.copy)}</p>
+            </div>`, { delay: 0.09 * i })).join("")}
+      </div>
+    </div>
+  </section>`;
+    const who = `<section class="container-x grid items-center gap-14 py-24 lg:grid-cols-2">
+    ${rv(`<div class="relative">
+        <div class="img-frame aspect-[4/3] shadow-2xl shadow-ink/15">
+          <img src="https://images.pexels.com/photos/7993944/pexels-photo-7993944.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1100" alt="The Tranquil Peeplz team collaborating" class="object-cover" />
+        </div>
+        <div class="animate-float absolute -bottom-8 right-6 rounded-3xl bg-accent px-6 py-5 text-cream shadow-xl shadow-accent/30">
+          <p class="font-display text-3xl font-semibold">8</p>
+          <p class="text-[11px] font-semibold tracking-[0.16em] uppercase opacity-90">Industries served</p>
+        </div>
+      </div>`)}
+    <div>
+      ${sectionHeading({
+        eyebrow: "What makes us — who we are",
+        title: `We exist to create<br/>possibilities, <span class="italic-pop">faster</span>`,
+        intro: "When people and businesses move together with speed, trust and purpose, growth becomes unstoppable. What sets us apart isn't just how fast we deliver — it's how deeply we care about the outcome. We open invisible doors to collaboration, creativity and human potential.",
+    })}
+      <div class="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+        ${VALUES.map((v, i) => rv(`<div class="flex gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent text-cream">${icon(v.icon, "", 20)}</span>
+              <div>
+                <h3 class="font-display text-lg font-medium tracking-tight">${esc(v.title)}</h3>
+                <p class="mt-1 text-[13.5px] leading-relaxed text-ink-soft">${esc(v.copy)}</p>
+              </div>
+            </div>`, { delay: 0.05 * i })).join("")}
+      </div>
+      ${rv(`<a href="/about-us" class="btn btn-primary mt-10">Learn more about us ${icon("arrow-up-right", "", 16)}</a>`, { delay: 0.2 })}
+    </div>
+  </section>`;
+    const industries = `<section class="border-y border-ink/10 bg-cream py-24">
+    <div class="container-x">
+      ${sectionHeading({
+        align: "center",
+        eyebrow: "Industries we cater to",
+        title: `Specialised recruitment,<br/>across <span class="italic-pop">every sector</span> that matters`,
+    })}
+      <div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
+        ${INDUSTRIES.map((ind, i) => rv(`<a href="/job-search?industry=${encodeURIComponent(ind.name)}" class="card-hover group flex h-full flex-col items-center gap-4 rounded-3xl border border-ink/10 bg-paper px-6 py-9 text-center hover:border-pine">
+              <span class="grid h-14 w-14 place-items-center rounded-full bg-pine text-cream transition-all duration-500 group-hover:rotate-6 group-hover:bg-accent">${icon(ind.icon, "", 24)}</span>
+              <span class="font-display text-lg font-medium tracking-tight text-ink">${esc(ind.name)}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.16em] text-ink/45 uppercase transition-colors group-hover:text-accent">View roles ${icon("arrow-up-right", "", 12)}</span>
+            </a>`, { delay: 0.05 * i })).join("")}
+      </div>
+    </div>
+  </section>`;
+    const challenge = `<section class="container-x py-24">
+    ${sectionHeading({
+        align: "center",
+        eyebrow: "Why Tranquil Peeplz",
+        title: `Solve your hiring challenges<br/><span class="italic-pop">with us</span>`,
+        intro: "Hiring delays and missed deadlines quietly tax every growing business. Here's the difference a specialist partner makes.",
+    })}
+    <div class="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
+      ${rv(`<div class="h-full rounded-[1.75rem] border border-ink/10 bg-cream p-8 md:p-10">
+          <span class="inline-flex items-center gap-2 rounded-full bg-ink/[0.06] px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-ink/60 uppercase">${icon("x-circle", "text-accent", 14)} Challenges without us</span>
+          <ul class="mt-7 space-y-5">
+            ${CHALLENGES.map((c) => `<li class="flex gap-3.5 text-[15px] leading-relaxed text-ink-soft">${icon("x-circle", "mt-0.5 shrink-0 text-accent/70", 19)}${esc(c)}</li>`).join("")}
+          </ul>
+        </div>`)}
+      ${rv(`<div class="relative h-full overflow-hidden rounded-[1.75rem] bg-pine p-8 text-cream md:p-10">
+          <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-40"></div>
+          <span class="relative inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase">${icon("circle-check", "text-cream", 14)} Solutions with us</span>
+          <ul class="relative mt-7 space-y-5">
+            ${SOLUTIONS.map((s) => `<li class="flex gap-3.5 text-[15px] leading-relaxed text-cream/85">${icon("circle-check", "mt-0.5 shrink-0 text-cream", 19)}${esc(s)}</li>`).join("")}
+          </ul>
+          <a href="/contact-us" class="relative btn btn-accent mt-9">Talk to our team ${icon("arrow-up-right", "", 15)}</a>
+        </div>`, { delay: 0.12 })}
+    </div>
+  </section>`;
+    const jobs = `<section class="border-y border-ink/10 bg-cream py-24">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        ${sectionHeading({
+        eyebrow: "Live opportunities",
+        title: `Fresh roles, <span class="italic-pop">open now</span>`,
+        intro: "A snapshot from our live board. Every role here is reviewed and approved by our team before it goes up.",
+    })}
+        ${rv(`<a href="/job-search" class="btn btn-outline">Browse all jobs ${icon("arrow-right", "", 16)}</a>`, { delay: 0.1 })}
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        ${p.featured.map((f, i) => rv(jobCard(f.job, f.company), { delay: 0.06 * i })).join("")}
+      </div>
+    </div>
+  </section>`;
+    const testimonials = `<section class="container-x py-24">
+    ${sectionHeading({
+        align: "center",
+        eyebrow: "Partners speak",
+        title: `Trusted by teams who<br/>hire with <span class="italic-pop">intent</span>`,
+    })}
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      ${TESTIMONIALS.map((t, i) => rv(`<figure class="card-hover flex h-full flex-col rounded-[1.75rem] border border-ink/10 bg-cream p-8">
+            <span class="font-display text-6xl leading-none text-accent">"</span>
+            <blockquote class="mt-2 flex-1 text-[15px] leading-relaxed text-ink-soft">${esc(t.quote)}</blockquote>
+            <figcaption class="mt-7 border-t border-ink/10 pt-5">
+              <p class="font-display text-lg font-medium text-ink">${esc(t.name)}</p>
+              <p class="text-[12.5px] font-medium tracking-wide text-ink/50 uppercase">${esc(t.org)}</p>
+            </figcaption>
+          </figure>`, { delay: 0.08 * i })).join("")}
+    </div>
+  </section>`;
+    const blogTeaser = `<section class="container-x pb-24">
+    <div class="rounded-[2rem] bg-sand/60 p-8 md:p-14">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        ${sectionHeading({
+        eyebrow: "From the journal",
+        title: `Ideas on hiring, <span class="italic-pop">done well</span>`,
+    })}
+        ${rv(`<a href="/blog" class="link-underline text-[13px] tracking-[0.14em] text-ink/70 uppercase">All articles →</a>`, { delay: 0.1 })}
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        ${p.posts
+        .slice(0, 3)
+        .map((post, i) => rv(`<a href="/blog/${esc(post.slug)}" class="group block h-full">
+                <article class="flex h-full flex-col">
+                  <div class="img-frame aspect-[16/10]">
+                    ${post.coverImage ? `<img src="${esc(post.coverImage)}" alt="${esc(post.title)}" class="object-cover" loading="lazy" />` : ""}
+                  </div>
+                  <p class="mt-5 text-[11px] font-semibold tracking-[0.18em] text-moss uppercase">${esc(post.category)} · ${post.readMinutes} min read</p>
+                  <h3 class="font-display mt-2 text-xl leading-snug font-medium tracking-tight text-ink transition-colors group-hover:text-moss">${esc(post.title)}</h3>
+                </article>
+              </a>`, { delay: 0.07 * i }))
+        .join("")}
+      </div>
+    </div>
+  </section>`;
+    const ctaSection = `<section class="container-x pb-24">
+    ${rv(`<div class="relative overflow-hidden rounded-[2.5rem] bg-ink px-8 py-16 text-center text-cream md:py-24">
+        <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-50"></div>
+        <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl"></div>
+        <p class="eyebrow relative justify-center !text-gold" style="display:inline-flex">Ready to create possibilities?</p>
+        <h2 class="h-display relative mx-auto mt-5 max-w-3xl text-4xl md:text-6xl">Bridging ambition and <span class="italic-pop">opportunity</span></h2>
+        <p class="relative mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-cream/70">We are the catalyst between businesses and people, precision and speed. Every requirement we take on becomes a promise to deliver — opening invisible doors to collaboration, creativity and human potential.</p>
+        <div class="relative mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="/post-a-job" class="btn btn-accent">Hire with us ${icon("arrow-up-right", "", 16)}</a>
+          <a href="/job-search" class="btn btn-ghost-light">Find your next role</a>
+        </div>
+      </div>`)}
+  </section>`;
+    return hero + services + how + who + industries + challenge + jobs + testimonials + blogTeaser + ctaSection;
+}
+//# sourceMappingURL=home.js.map
