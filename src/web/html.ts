@@ -24,9 +24,8 @@ function logo(light = false): string {
   const text = light ? "text-cream" : "text-ink";
   const sub = light ? "text-cream/60" : "text-ink/50";
   return `<a href="/" class="group inline-flex items-center gap-2.5">
-  <img src="/logo-t.png" alt="Tranquil Peeplz Logo" class="h-10 w-auto" />
+  <img src="/logo-options.png" alt="Tranquil Peeplz Logo" class="h-10 w-auto" />
   <span class="leading-none ${text}">
-    <span class="block font-display text-[19px] font-medium tracking-tight">Tranquil <span class="italic text-accent">Peeplz</span></span>
     <span class="mt-0.5 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${sub}">Creating Possibilities</span>
   </span>
 </a>`;
@@ -222,7 +221,7 @@ export function page(opts: PageOptions): string {
 <link rel="icon" href="/logo.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/app.css" />
 </head>
 <body class="grain flex min-h-dvh flex-col" id="top">
