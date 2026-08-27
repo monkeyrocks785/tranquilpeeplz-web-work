@@ -1,6 +1,7 @@
 {
   "name": "tranquil-peeplz",
   "private": true,
+  "main": "api/index.ts",
   "scripts": {
     "dev": "npm run css && tsx watch server.ts",
     "build": "npm run css",
