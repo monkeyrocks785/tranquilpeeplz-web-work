@@ -1,5 +1,76 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillyregular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillyitalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillymediumregular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillymediumitalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantilly-demiboldita.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillybold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantilly-bold-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillyheavyita.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillyextrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chantilly';
+  src: url('/fonts/chantilly/chantillyxboldregular.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-paper: #ffffff;
   --color-cream: #f3e3d0;
@@ -13,8 +84,8 @@
   --color-accent-deep: #e0470f;
   --color-gold: #d2c4b4;
 
-  --font-display: "Libre Baskerville", Georgia, serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Chantilly", Georgia, serif;
+  --font-sans: "Chantilly", ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 32s linear infinite;
   --animate-float: float 7s ease-in-out infinite;

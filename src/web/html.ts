@@ -214,9 +214,6 @@ export function page(opts: PageOptions): string {
 <title>${esc(opts.title)}</title>
 <meta name="description" content="${esc(desc)}" />
 <link rel="icon" href="/logo.jpeg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/app.css" />
 </head>
 <body class="grain flex min-h-dvh flex-col" id="top">
