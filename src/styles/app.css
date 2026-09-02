@@ -175,6 +175,24 @@ select.field {
 #site-header.scrolled nav a.link-underline:hover { color: #573a3d; }
 #site-header.scrolled nav a.link-underline.text-accent { color: #ff5714; }
 #site-header.scrolled button[onclick="openMenu()"] { border-color: rgba(87,58,61,.15); color: #573a3d; }
+
+/* Hero Browse Jobs button - white on transparent header */
+.btn-hero-outline { border: 1px solid #ffffff; color: #ffffff; background: transparent; }
+.btn-hero-outline:hover { border-color: #ffffff; background: #ffffff; color: #573a3d; }
+
+/* Scrolled state for hero button */
+#site-header.scrolled .btn-hero-outline { border: 1px solid rgba(87,58,61,.3); color: #573a3d; background: transparent; }
+#site-header.scrolled .btn-hero-outline:hover { border-color: #573a3d; background: #573a3d; color: #f3e3d0; }
+
+/* Logo styling - professional fixed sizing */
+.logo-link { display: inline-flex; line-height: 0; }
+.logo-img { height: 36px; width: auto; max-width: 140px; }
+
+/* Mobile menu logo - ensure visibility on dark background */
+#mobile-menu .logo-img { filter: brightness(0) invert(1); }
+
+/* Footer logo - ensure visibility on dark background */
+footer .logo-img { filter: brightness(0) invert(1); }
 #mobile-menu { display: none; }
 #mobile-menu.open { display: block; }
 body.menu-open { overflow: hidden; }

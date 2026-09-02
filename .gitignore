@@ -1,2 +1,3 @@
 .env
 node_modules/
+requirements_by_client/

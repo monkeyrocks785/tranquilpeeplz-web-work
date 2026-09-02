@@ -21,13 +21,8 @@ const NAV = [
 ];
 
 function logo(light = false): string {
-  const text = light ? "text-cream" : "text-ink";
-  const sub = light ? "text-cream/60" : "text-ink/50";
-  return `<a href="/" class="group inline-flex items-center gap-2.5">
-  <img src="/logo-options.png" alt="Tranquil Peeplz Logo" class="h-10 w-auto" />
-  <span class="leading-none ${text}">
-    <span class="mt-0.5 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${sub}">Creating Possibilities</span>
-  </span>
+  return `<a href="/" class="logo-link" aria-label="Tranquil Peeplz Home">
+  <img src="/logo-t.png" alt="" class="logo-img" />
 </a>`;
 }
 
@@ -57,7 +52,7 @@ function header(path: string): string {
       ${links}
       </nav>
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="/job-search" class="btn btn-outline btn-sm">Browse Jobs</a>
+        <a href="/job-search" class="btn btn-hero-outline btn-sm">Browse Jobs</a>
         <a href="/post-a-job" class="btn btn-accent btn-sm">Post a Job ${icon("arrow-up-right", "", 15)}</a>
       </div>
       <button onclick="openMenu()" class="grid h-11 w-11 place-items-center rounded-full border border-${isHome ? 'cream/30' : 'ink/15'} text-${isHome ? 'cream' : 'ink'} lg:hidden" aria-label="Open menu">${icon("menu", "", 20)}</button>
