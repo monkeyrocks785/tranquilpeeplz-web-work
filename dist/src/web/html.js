@@ -17,14 +17,12 @@ const NAV = [
     { href: "/blog", label: "Blog" },
     { href: "/contact-us", label: "Contact" },
 ];
-function logo(light = false) {
-    const text = light ? "text-cream" : "text-ink";
-    const sub = light ? "text-cream/60" : "text-ink/50";
-    return `<a href="/" class="group inline-flex items-center gap-2.5">
-  <img src="/logo-options.png" alt="Tranquil Peeplz Logo" class="h-10 w-auto" />
-  <span class="leading-none ${text}">
-    <span class="mt-0.5 block text-[9.5px] font-semibold uppercase tracking-[0.3em] ${sub}">Creating Possibilities</span>
-  </span>
+function logo(light = false, full = false) {
+    const src = full ? "/logo-options.png" : "/logo-t.png";
+    const height = full ? "48" : "36";
+    const maxWidth = full ? "280px" : "140px";
+    return `<a href="/" class="logo-link" aria-label="Tranquil Peeplz Home">
+  <img src="${src}" alt="" class="logo-img" height="${height}" style="max-width: ${maxWidth}; width: auto;" />
 </a>`;
 }
 function header(path) {
@@ -46,7 +44,7 @@ function header(path) {
       ${links}
       </nav>
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="/job-search" class="btn btn-outline btn-sm">Browse Jobs</a>
+        <a href="/job-search" class="btn btn-hero-outline btn-sm">Browse Jobs</a>
         <a href="/post-a-job" class="btn btn-accent btn-sm">Post a Job ${icon("arrow-up-right", "", 15)}</a>
       </div>
       <button onclick="openMenu()" class="grid h-11 w-11 place-items-center rounded-full border border-${isHome ? 'cream/30' : 'ink/15'} text-${isHome ? 'cream' : 'ink'} lg:hidden" aria-label="Open menu">${icon("menu", "", 20)}</button>
@@ -89,17 +87,19 @@ function footer() {
     return `<footer class="relative overflow-hidden bg-ink text-cream">
     <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-40"></div>
     <div class="container-x relative">
-      <div class="flex flex-col gap-10 border-b border-cream/10 py-14 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-md">
-          ${logo(true)}
-          <p class="mt-5 text-[15px] leading-relaxed text-cream/65">A Bangalore-based recruitment consultancy helping companies hire with pace and precision — and helping people find work worth doing. Creating possibilities, faster.</p>
+      <div class="flex flex-col gap-10 border-b border-cream/10 py-14 lg:flex-row lg:items-start lg:justify-between">
+        <div class="max-w-md flex flex-col">
+          <div class="flex flex-col items-start gap-3">
+            ${logo(true, true)}
+            <p class="text-[15px] leading-relaxed text-cream/65">A Bangalore-based recruitment consultancy helping companies hire with pace and precision — and helping people find work worth doing. Creating possibilities, faster.</p>
+          </div>
           <div class="mt-6 flex items-center gap-3">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${instagramIcon(17)}</a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${linkedinIcon(17)}</a>
             <a href="mailto:contact@tranquilpeeplz.com" aria-label="Email" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${icon("mail", "", 17)}</a>
           </div>
         </div>
-        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem]">tranquil<br/>peeplz</p>
+        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem] mt-10 lg:mt-0"><span class="block">tranquil</span><span class="block mt-5">peeplz</span></p>
       </div>
       <div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -190,9 +190,6 @@ export function page(opts) {
 <title>${esc(opts.title)}</title>
 <meta name="description" content="${esc(desc)}" />
 <link rel="icon" href="/logo.jpeg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/app.css" />
 </head>
 <body class="grain flex min-h-dvh flex-col" id="top">

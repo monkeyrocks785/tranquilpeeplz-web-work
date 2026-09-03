@@ -1,5 +1,4 @@
 import { app } from "../src/app";
-import { createVercelHandler } from "@vercel/node";
 
-// Vercel serverless adapter: wraps Express app for Vercel
-export default createVercelHandler(app);
+// Vercel serverless adapter: exports Express app directly
+export default app;
