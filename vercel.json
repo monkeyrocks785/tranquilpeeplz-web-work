@@ -11,6 +11,26 @@
   },
   "rewrites": [
     {
+      "source": "/app.css",
+      "destination": "/app.css"
+    },
+    {
+      "source": "/logo-t.png",
+      "destination": "/logo-t.png"
+    },
+    {
+      "source": "/logo-options.png",
+      "destination": "/logo-options.png"
+    },
+    {
+      "source": "/logo-options-org.png",
+      "destination": "/logo-options-org.png"
+    },
+    {
+      "source": "/fonts/(.*)",
+      "destination": "/fonts/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/api/index"
     }
