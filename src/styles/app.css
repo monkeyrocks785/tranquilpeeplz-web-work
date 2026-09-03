@@ -265,8 +265,9 @@ select.field {
 /* Footer logo - use original colors on dark background */
 footer .logo-img { 
   filter: none;
-  height: 64px;
-  max-width: 360px;
+  height: 150px;
+  max-width: none;
+  width: auto;
 }
 #mobile-menu { display: none; }
 #mobile-menu.open { display: block; }

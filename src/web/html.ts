@@ -118,7 +118,7 @@ function footer(): string {
             <a href="mailto:contact@tranquilpeeplz.com" aria-label="Email" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${icon("mail", "", 17)}</a>
           </div>
         </div>
-        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem] mt-10 lg:mt-0">tranquil<br/>peeplz</p>
+        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem] mt-10 lg:mt-0"><span class="block">tranquil</span><span class="block mt-5">peeplz</span></p>
       </div>
       <div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
