@@ -189,6 +189,7 @@ export function page(opts) {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc(opts.title)}</title>
 <meta name="description" content="${esc(desc)}" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/logo-t.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/logo-t.png" />
 <link rel="apple-touch-icon" href="/logo-t.png" />
