@@ -189,7 +189,7 @@ export function page(opts) {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc(opts.title)}</title>
 <meta name="description" content="${esc(desc)}" />
-<link rel="icon" href="/logo.jpeg" />
+<link rel="icon" href="/favicon.ico" />
 <link rel="stylesheet" href="/app.css" />
 </head>
 <body class="grain flex min-h-dvh flex-col" id="top">

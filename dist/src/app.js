@@ -21,6 +21,10 @@ app.disable("x-powered-by");
 app.use(express.urlencoded({ extended: true, limit: "256kb" }));
 app.use(express.json({ limit: "256kb" }));
 app.use(express.static("public", { maxAge: "1h", index: false }));
+// Favicon - serve the T logo
+app.get("/favicon.ico", (_req, res) => {
+    res.sendFile("logo-t.png", { root: "public" });
+});
 // Run schema+seed bootstrap once (promise-memoised inside ensureDatabase).
 app.use((_req, _res, next) => {
     void ensureDatabase().then(() => next(), () => next());
