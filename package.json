@@ -4,7 +4,7 @@
   "main": "api/index.ts",
   "scripts": {
     "dev": "npm run css && tsx watch server.ts",
-    "build": "npm run css",
+    "build": "npm run compile && npm run css",
     "start": "node dist/server.js",
     "vercel-build": "npm run build",
     "lint": "eslint .",
