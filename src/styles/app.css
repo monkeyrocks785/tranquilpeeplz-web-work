@@ -262,8 +262,12 @@ select.field {
 /* Mobile menu logo - ensure visibility on dark background */
 #mobile-menu .logo-img { filter: brightness(0) invert(1); }
 
-/* Footer logo - ensure visibility on dark background */
-footer .logo-img { filter: brightness(0) invert(1); }
+/* Footer logo - use original colors on dark background */
+footer .logo-img { 
+  filter: none;
+  height: 64px;
+  max-width: 360px;
+}
 #mobile-menu { display: none; }
 #mobile-menu.open { display: block; }
 body.menu-open { overflow: hidden; }

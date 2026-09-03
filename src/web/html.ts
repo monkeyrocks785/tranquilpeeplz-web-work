@@ -20,9 +20,12 @@ const NAV = [
   { href: "/contact-us", label: "Contact" },
 ];
 
-function logo(light = false): string {
+function logo(light = false, full = false): string {
+  const src = full ? "/logo-options.png" : "/logo-t.png";
+  const height = full ? "48" : "36";
+  const maxWidth = full ? "280px" : "140px";
   return `<a href="/" class="logo-link" aria-label="Tranquil Peeplz Home">
-  <img src="/logo-t.png" alt="" class="logo-img" />
+  <img src="${src}" alt="" class="logo-img" height="${height}" style="max-width: ${maxWidth}; width: auto;" />
 </a>`;
 }
 
@@ -103,17 +106,19 @@ function footer(): string {
   return `<footer class="relative overflow-hidden bg-ink text-cream">
     <div class="dot-grid-light pointer-events-none absolute inset-0 opacity-40"></div>
     <div class="container-x relative">
-      <div class="flex flex-col gap-10 border-b border-cream/10 py-14 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-md">
-          ${logo(true)}
-          <p class="mt-5 text-[15px] leading-relaxed text-cream/65">A Bangalore-based recruitment consultancy helping companies hire with pace and precision — and helping people find work worth doing. Creating possibilities, faster.</p>
+      <div class="flex flex-col gap-10 border-b border-cream/10 py-14 lg:flex-row lg:items-start lg:justify-between">
+        <div class="max-w-md flex flex-col">
+          <div class="flex flex-col items-start gap-3">
+            ${logo(true, true)}
+            <p class="text-[15px] leading-relaxed text-cream/65">A Bangalore-based recruitment consultancy helping companies hire with pace and precision — and helping people find work worth doing. Creating possibilities, faster.</p>
+          </div>
           <div class="mt-6 flex items-center gap-3">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${instagramIcon(17)}</a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${linkedinIcon(17)}</a>
             <a href="mailto:contact@tranquilpeeplz.com" aria-label="Email" class="grid h-10 w-10 place-items-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-accent hover:bg-accent hover:text-cream">${icon("mail", "", 17)}</a>
           </div>
         </div>
-        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem]">tranquil<br/>peeplz</p>
+        <p class="font-display text-[13vw] leading-[0.85] font-medium tracking-tight text-cream/[0.07] select-none lg:text-[7rem] mt-10 lg:mt-0">tranquil<br/>peeplz</p>
       </div>
       <div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
