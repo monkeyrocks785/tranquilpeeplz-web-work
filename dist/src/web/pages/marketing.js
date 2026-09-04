@@ -1,6 +1,6 @@
-import { esc, rv, sectionHeading, fieldError, formAlert } from "../html";
-import { icon, stamp } from "../icons";
-import { jobCard } from "./jobs";
+import { esc, rv, sectionHeading, fieldError, formAlert } from "../html.js";
+import { icon, stamp } from "../icons.js";
+import { jobCard } from "./jobs.js";
 function hero(p) {
     return `<section class="container-x grid items-center gap-12 pt-10 pb-20 lg:grid-cols-2 lg:pt-16">
     <div>

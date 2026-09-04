@@ -1,4 +1,4 @@
-import { pool } from "./index";
+import { pool } from "./index.js";
 /**
  * Idempotent schema bootstrap.
  *
@@ -126,7 +126,7 @@ async function doBootstrap() {
     for (let i = 0; i < attempts; i++) {
         try {
             await pool.query(DDL);
-            const { seedIfEmpty } = await import("./seed");
+            const { seedIfEmpty } = await import("./seed.js");
             const result = await seedIfEmpty();
             if (result.seeded) {
                 console.log(`[db] Schema ready. Seeded demo data (${result.jobs} jobs, companies, blog posts).`);

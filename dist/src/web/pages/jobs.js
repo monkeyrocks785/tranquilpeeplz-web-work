@@ -1,6 +1,6 @@
-import { esc, rv, fieldError, formAlert } from "../html";
-import { icon } from "../icons";
-import { formatDate, formatExperience, formatSalary, timeAgo, } from "../../lib/utils";
+import { esc, rv, fieldError, formAlert } from "../html.js";
+import { icon } from "../icons.js";
+import { formatDate, formatExperience, formatSalary, timeAgo, } from "../../lib/utils.js";
 // ---------------------------------------------------------------------------
 // Job card (shared with home/seeker pages)
 // ---------------------------------------------------------------------------

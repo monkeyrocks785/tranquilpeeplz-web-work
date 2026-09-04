@@ -1,6 +1,6 @@
 import "dotenv/config"; // loads .env before any module touches process.env
-import { app } from "./src/app";
-import { ensureDatabase } from "./src/db/bootstrap";
+import { app } from "./src/app.js";
+import { ensureDatabase } from "./src/db/bootstrap.js";
 const port = Number(process.env.PORT ?? 3000);
 async function main() {
     // Create schema and seed demo data before accepting traffic (idempotent).

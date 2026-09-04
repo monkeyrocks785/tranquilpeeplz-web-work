@@ -11,14 +11,14 @@ function cache<TArgs extends unknown[], TReturn>(
     return map.get(key)!;
   });
 }
-import { db } from "../db";
+import { db } from "../db/index.js";
 import {
   jobs,
   companies,
   applications,
   blogPosts,
   emailLogs,
-} from "../db/schema";
+} from "../db/schema.js";
 import {
   and,
   desc,
@@ -130,7 +130,7 @@ export async function listJobLocations() {
     .from(jobs)
     .where(eq(jobs.status, "open"))
     .orderBy(asc(jobs.location));
-  return rows.map((r) => r.location);
+  return rows.map((r: { location: string }) => r.location);
 }
 
 // ------------------------------- Admin -------------------------------

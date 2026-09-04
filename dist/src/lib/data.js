@@ -9,8 +9,8 @@ function cache(fn) {
         return map.get(key);
     });
 }
-import { db } from "../db";
-import { jobs, companies, applications, blogPosts, emailLogs, } from "../db/schema";
+import { db } from "../db/index.js";
+import { jobs, companies, applications, blogPosts, emailLogs, } from "../db/schema.js";
 import { and, desc, eq, ilike, or, sql, asc, count, ne, } from "drizzle-orm";
 export const INDUSTRIES = [
     "IT & Software",

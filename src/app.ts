@@ -1,7 +1,7 @@
 import express, { type Request, type Response, type NextFunction } from "express";
 import { z } from "zod";
-import { page, esc } from "./web/html";
-import { homePage } from "./web/pages/home";
+import { page, esc } from "./web/html.js";
+import { homePage } from "./web/pages/home.js";
 import {
   aboutPage,
   contactPage,
@@ -10,10 +10,10 @@ import {
   privacyPage,
   servicePage,
   SERVICE_PAGES,
-} from "./web/pages/marketing";
-import { jobDetailPage, jobSearchPage, postJobPage } from "./web/pages/jobs";
-import { blogPage, blogPostPage } from "./web/pages/blog";
-import { adminLoginPage, adminPage, notFoundPage } from "./web/pages/admin";
+} from "./web/pages/marketing.js";
+import { jobDetailPage, jobSearchPage, postJobPage } from "./web/pages/jobs.js";
+import { blogPage, blogPostPage } from "./web/pages/blog.js";
+import { adminLoginPage, adminPage, notFoundPage } from "./web/pages/admin.js";
 import {
   INDUSTRIES,
   getAdminStats,
@@ -29,16 +29,16 @@ import {
   listJobLocations,
   listJobs,
   listAllApplications as listAppsRaw,
-} from "./lib/data";
-import { submitJobApplication, submitJobForReview, sendJobApprovedEmail } from "./lib/jobs-service";
-import { ensureDatabase } from "./db/bootstrap";
-import { seedIfEmpty } from "./db/seed";
-import { db } from "./db";
-import { jobs, contactMessages, applications as applicationsTable, companies } from "./db/schema";
+} from "./lib/data.js";
+import { submitJobApplication, submitJobForReview, sendJobApprovedEmail } from "./lib/jobs-service.js";
+import { ensureDatabase } from "./db/bootstrap.js";
+import { seedIfEmpty } from "./db/seed.js";
+import { db } from "./db/index.js";
+import { jobs, contactMessages, applications as applicationsTable, companies } from "./db/schema.js";
 import { eq, sql } from "drizzle-orm";
 import { and } from "drizzle-orm";
-import { ADMIN_COOKIE, adminPasscode, adminToken, isAdmin } from "./lib/admin";
-import { toCsv, OWNER_EMAIL } from "./lib/email";
+import { ADMIN_COOKIE, adminPasscode, adminToken, isAdmin } from "./lib/admin.js";
+import { toCsv, OWNER_EMAIL } from "./lib/email.js";
 
 export const app = express();
 
@@ -191,7 +191,7 @@ app.get("/blog", asyncRoute(async (_req, res) => {
 app.get("/blog/:slug", asyncRoute(async (req, res, next) => {
   const post = await getBlogPostBySlug(String(req.params.slug));
   if (!post) return next();
-  const others = (await listBlogPosts()).filter((b) => b.slug !== post.slug).slice(0, 2);
+  const others = (await listBlogPosts()).filter((b: typeof post) => b.slug !== post.slug).slice(0, 2);
   send(res, `${post.title} · Tranquil Peeplz`, "/blog", blogPostPage(post, others), post.excerpt);
 }));
 
@@ -334,7 +334,7 @@ app.get("/api/applications.csv", asyncRoute(async (req, res) => {
   const rows = await listAppsRaw();
   const csv = toCsv(
     ["Applied At", "Job Title", "Company", "Applicant Name", "Applicant Email", "Applicant Phone", "Resume URL", "Cover Note", "Status"],
-    rows.map(({ application, job, company }) => [
+    rows.map(({ application, job, company }: { application: typeof applicationsTable.$inferSelect; job: typeof jobs.$inferSelect; company: typeof companies.$inferSelect }) => [
       application.createdAt.toISOString(),
       job.title,
       company.name,

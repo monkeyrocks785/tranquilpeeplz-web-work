@@ -1,7 +1,7 @@
-import { esc, rv, sectionHeading, fieldError, formAlert } from "../html";
-import { icon, stamp } from "../icons";
-import type { Job, Company } from "../../db/schema";
-import { jobCard } from "./jobs";
+import { esc, rv, sectionHeading, fieldError, formAlert } from "../html.js";
+import { icon, stamp } from "../icons.js";
+import type { Job, Company } from "../../db/schema.js";
+import { jobCard } from "./jobs.js";
 
 function hero(p: {
   eyebrow: string;

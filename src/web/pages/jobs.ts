@@ -1,12 +1,12 @@
-import { esc, rv, sectionHeading, fieldError, formAlert } from "../html";
-import { icon } from "../icons";
-import type { Company, Job } from "../../db/schema";
+import { esc, rv, sectionHeading, fieldError, formAlert } from "../html.js";
+import { icon } from "../icons.js";
+import type { Company, Job } from "../../db/schema.js";
 import {
   formatDate,
   formatExperience,
   formatSalary,
   timeAgo,
-} from "../../lib/utils";
+} from "../../lib/utils.js";
 
 // ---------------------------------------------------------------------------
 // Job card (shared with home/seeker pages)

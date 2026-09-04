@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import { db } from "../db";
-import { emailLogs } from "../db/schema";
+import { db } from "../db/index.js";
+import { emailLogs } from "../db/schema.js";
 import { eq } from "drizzle-orm";
 
 export type EmailKind = "job_thank_you" | "new_application_owner" | "job_approved" | "application_received" | "new_job_pending";

@@ -1,7 +1,7 @@
-import { esc, rv } from "../html";
-import { icon } from "../icons";
-import type { BlogPost } from "../../db/schema";
-import { formatDate } from "../../lib/utils";
+import { esc, rv } from "../html.js";
+import { icon } from "../icons.js";
+import type { BlogPost } from "../../db/schema.js";
+import { formatDate } from "../../lib/utils.js";
 
 export function blogPage(posts: BlogPost[]): string {
   const [first, ...rest] = posts;

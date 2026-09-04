@@ -1,7 +1,7 @@
 import { count } from "drizzle-orm";
-import { db } from "./index";
-import { companies, jobs, blogPosts } from "./schema";
-import { slugify } from "../lib/utils";
+import { db } from "./index.js";
+import { companies, jobs, blogPosts } from "./schema.js";
+import { slugify } from "../lib/utils.js";
 
 const jobSeed = [
   {

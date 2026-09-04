@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
-import { db } from "../db";
-import { emailLogs } from "../db/schema";
+import { db } from "../db/index.js";
+import { emailLogs } from "../db/schema.js";
 import { eq } from "drizzle-orm";
 const FROM = process.env.EMAIL_FROM ?? "Tranquil Peeplz <no-reply@tranquilpeeplz.com>";
 export const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "contact@tranquilpeeplz.com";

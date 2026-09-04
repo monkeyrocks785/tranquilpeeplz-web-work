@@ -1,4 +1,4 @@
-import { icon, instagramIcon, linkedinIcon } from "./icons";
+import { icon, instagramIcon, linkedinIcon } from "./icons.js";
 
 /** HTML-escape user/DB-provided strings before interpolation. */
 export function esc(value: unknown): string {

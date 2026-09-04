@@ -1,6 +1,6 @@
-import { esc, rv, sectionHeading } from "../html";
-import { icon } from "../icons";
-import { jobCard } from "./jobs";
+import { esc, rv, sectionHeading } from "../html.js";
+import { icon } from "../icons.js";
+import { jobCard } from "./jobs.js";
 const SERVICES = [
     {
         nr: "01",

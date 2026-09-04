@@ -1,4 +1,4 @@
-import type { Application, Company, EmailLog, Job } from "../../db/schema";
+import type { Application, Company, EmailLog, Job } from "../../db/schema.js";
 export declare function adminLoginPage(p?: {
     message?: string;
     errors?: Record<string, string[] | undefined>;

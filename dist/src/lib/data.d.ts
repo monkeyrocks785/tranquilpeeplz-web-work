@@ -1,4 +1,4 @@
-import { jobs, companies } from "../db/schema";
+import { jobs, companies } from "../db/schema.js";
 export declare const INDUSTRIES: readonly ["IT & Software", "Healthcare", "Finance & Banking", "Manufacturing", "E-commerce & Retail", "Education", "Hospitality & Travel", "Advertising & Media"];
 export type JobFilters = {
     q?: string;

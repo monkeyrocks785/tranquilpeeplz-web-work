@@ -1,7 +1,7 @@
-import { esc, rv, fieldError, formAlert } from "../html";
-import { icon } from "../icons";
-import type { Application, Company, EmailLog, Job } from "../../db/schema";
-import { formatDate, formatSalary, timeAgo } from "../../lib/utils";
+import { esc, rv, fieldError, formAlert } from "../html.js";
+import { icon } from "../icons.js";
+import type { Application, Company, EmailLog, Job } from "../../db/schema.js";
+import { formatDate, formatSalary, timeAgo } from "../../lib/utils.js";
 
 export function adminLoginPage(p?: {
   message?: string;

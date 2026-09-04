@@ -1,6 +1,6 @@
-import { esc, rv } from "../html";
-import { icon } from "../icons";
-import { formatDate } from "../../lib/utils";
+import { esc, rv } from "../html.js";
+import { icon } from "../icons.js";
+import { formatDate } from "../../lib/utils.js";
 export function blogPage(posts) {
     const [first, ...rest] = posts;
     const featured = first

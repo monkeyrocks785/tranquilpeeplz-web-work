@@ -1,7 +1,7 @@
-import { esc, rv, marquee, sectionHeading } from "../html";
-import { icon, stamp } from "../icons";
-import type { Job, Company, BlogPost } from "../../db/schema";
-import { jobCard } from "./jobs";
+import { esc, rv, marquee, sectionHeading } from "../html.js";
+import { icon, stamp } from "../icons.js";
+import type { Job, Company, BlogPost } from "../../db/schema.js";
+import { jobCard } from "./jobs.js";
 
 const SERVICES = [
   {

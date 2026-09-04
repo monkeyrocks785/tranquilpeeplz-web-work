@@ -1,6 +1,6 @@
-import { esc, rv, fieldError, formAlert } from "../html";
-import { icon } from "../icons";
-import { formatDate, formatSalary, timeAgo } from "../../lib/utils";
+import { esc, rv, fieldError, formAlert } from "../html.js";
+import { icon } from "../icons.js";
+import { formatDate, formatSalary, timeAgo } from "../../lib/utils.js";
 export function adminLoginPage(p) {
     return `<div class="container-x grid min-h-[60vh] place-items-center py-20">
     <div class="w-full max-w-md">

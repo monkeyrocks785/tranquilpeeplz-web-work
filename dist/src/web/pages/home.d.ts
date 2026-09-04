@@ -1,4 +1,4 @@
-import type { Job, Company, BlogPost } from "../../db/schema";
+import type { Job, Company, BlogPost } from "../../db/schema.js";
 export declare function homePage(p: {
     featured: {
         job: Job;

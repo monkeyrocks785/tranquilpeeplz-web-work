@@ -1,4 +1,4 @@
-import type { Company, Job } from "../../db/schema";
+import type { Company, Job } from "../../db/schema.js";
 export declare function jobCard(job: Job, company: Company): string;
 export declare function jobSearchPage(p: {
     results: {

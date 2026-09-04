@@ -1,9 +1,9 @@
 import { z } from "zod";
 import { and, eq, ilike } from "drizzle-orm";
-import { db } from "../db";
-import { applications, companies, jobs } from "../db/schema";
-import { sendEmail, toCsv, OWNER_EMAIL } from "./email";
-import { slugify } from "./utils";
+import { db } from "../db/index.js";
+import { applications, companies, jobs } from "../db/schema.js";
+import { sendEmail, toCsv, OWNER_EMAIL } from "./email.js";
+import { slugify } from "./utils.js";
 
 /**
  * Shared business logic. Used by:
