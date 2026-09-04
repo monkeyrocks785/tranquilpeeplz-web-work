@@ -2,7 +2,6 @@
   "buildCommand": "npm run vercel-build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "node",
   "regions": ["iad1"],
   "functions": {
     "api/index.ts": {
